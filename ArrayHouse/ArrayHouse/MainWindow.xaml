@@ -5,8 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ArrayHouse"
         mc:Ignorable="d"
-        Title="ArrayHouse" Height="450" Width="800">
+        Width="1000"
+        Height="500"
+        Title="ArrayHouse">
+
+    
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition 
+                Width="*" 
+                MaxWidth="400"
+                MinWidth="150"/>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <GridSplitter Width="5" Background="Black" Grid.Column="0"></GridSplitter>
+        <Border  Grid.Column="0" Background="#0E8AA4" Margin="5 0 10 5" BorderThickness="1" BorderBrush="Black" CornerRadius="10">
+            <StackPanel>
+                <Label Margin="5" Content="Enter number of Houses"></Label>
+                <TextBox Margin="5,2" TextWrapping="WrapWithOverflow" Text="Enter number of House"/>
+                <Label Margin="5" Content="Enter number of Houses"></Label>
+                <TextBox Margin="5,2" TextWrapping="WrapWithOverflow" Text="Enter number of House"/>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Column="1" Background="#eee" BorderThickness="1" BorderBrush="Black" CornerRadius="10" Margin="10">
+            
+        </Border>
+
+
 
     </Grid>
+
 </Window>

@@ -24,5 +24,10 @@ namespace ArrayHouse
         {
             InitializeComponent();
         }
+
+        private void TextBox_IsHitTestVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+
+        }
     }
 }

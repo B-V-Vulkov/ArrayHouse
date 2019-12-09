@@ -33,3 +33,4 @@ D:\Projects\ArrayHouse\ArrayHouse\ArrayHouse\obj\Debug\netcoreapp3.0\ArrayHouse.
 D:\Projects\ArrayHouse\ArrayHouse\ArrayHouse\obj\Debug\netcoreapp3.0\ArrayHouse.AssemblyInfo.cs
 D:\Projects\ArrayHouse\ArrayHouse\ArrayHouse\obj\Debug\netcoreapp3.0\ArrayHouse.dll
 D:\Projects\ArrayHouse\ArrayHouse\ArrayHouse\obj\Debug\netcoreapp3.0\ArrayHouse.pdb
+D:\Projects\ArrayHouse\ArrayHouse\ArrayHouse\obj\Debug\netcoreapp3.0\ArrayHouse.csprojAssemblyReference.cache
