@@ -9,6 +9,16 @@
         Height="500"
         Title="ArrayHouse">
 
+<<<<<<< HEAD
+=======
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/Buttons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+>>>>>>> fc5d7fcb25748042067f96de5d33b8bb3a4a6103
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -43,7 +53,10 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
+<<<<<<< HEAD
                             <RowDefinition Height="*"/>
+=======
+>>>>>>> fc5d7fcb25748042067f96de5d33b8bb3a4a6103
                         </Grid.RowDefinitions>
 
                         <Border
@@ -62,11 +75,18 @@
                             Text="Houses:"/>
 
                         <TextBox
+<<<<<<< HEAD
                             x:Name="NumberOfHouses"
                             Grid.Column="2"
                             Grid.Row="1"
                             Margin="5 10 5 0"
                             BorderBrush="SkyBlue" BorderThickness="1"/>
+=======
+                            Grid.Column="2"
+                            Grid.Row="1"
+                            Margin="5 10 5 0"
+                            BorderBrush="SkyBlue" BorderThickness="1" Text=""/>
+>>>>>>> fc5d7fcb25748042067f96de5d33b8bb3a4a6103
 
                         <TextBlock 
                             Grid.Column="0"
@@ -79,6 +99,7 @@
                             Grid.Row="2"
                             Margin="5 10 5 10"
                             BorderBrush="SkyBlue" BorderThickness="1" Text=""/>
+<<<<<<< HEAD
 
                         <TextBlock 
                             Grid.Column="0"
@@ -88,6 +109,8 @@
 
                         <Button
                             Grid.Column="1"></Button>
+=======
+>>>>>>> fc5d7fcb25748042067f96de5d33b8bb3a4a6103
                         
                     </Grid>
                 </Border>
@@ -111,6 +134,7 @@
 
 
 
+<<<<<<< HEAD
 
                 <StackPanel Orientation="Horizontal">
 
@@ -125,20 +149,45 @@
 
                         <StackPanel HorizontalAlignment="Center" Grid.Row="0" Orientation="Horizontal">
                             <Line
+=======
+                
+                <StackPanel Orientation="Horizontal">
+
+                    <ToggleButton Background="Transparent" Checked="ToggleButton_Checked">
+                        <Grid Height="100" Width="100">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+
+                            <StackPanel HorizontalAlignment="Center" Grid.Row="0" Orientation="Horizontal">
+                                <Line
+>>>>>>> fc5d7fcb25748042067f96de5d33b8bb3a4a6103
                             X2="15"
                             VerticalAlignment="Center" 
                             Margin="5" 
                             Stroke="SkyBlue" StrokeThickness="1"/>
+<<<<<<< HEAD
                             <TextBlock
+=======
+                                <TextBlock
+>>>>>>> fc5d7fcb25748042067f96de5d33b8bb3a4a6103
                             Text="11" 
                             VerticalAlignment="Center" 
                             HorizontalAlignment="Center" 
                             FontSize="16"/>
+<<<<<<< HEAD
                             <Line
+=======
+                                <Line
+>>>>>>> fc5d7fcb25748042067f96de5d33b8bb3a4a6103
                             X2="15"
                             VerticalAlignment="Center" 
                             Margin="5" 
                             Stroke="SkyBlue" StrokeThickness="1"/>
+<<<<<<< HEAD
                         </StackPanel>
 
                         <!--<Image Grid.Row="1" Source="./Resources/Images/Houses/House.png"></Image>-->
@@ -146,6 +195,14 @@
 
                     </Grid>
                 </StackPanel>
+=======
+                            </StackPanel>
+
+                            <Image Grid.Row="1" Source="./Resources/Images/Houses/House.png"></Image>
+
+
+                        </Grid>
+>>>>>>> fc5d7fcb25748042067f96de5d33b8bb3a4a6103
 
                 <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
                     <Grid x:Name="grdChampions" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -196,8 +253,35 @@
             </StackPanel>
         </Border>
 
+                    </ToggleButton>
+                    
+                   
+
+
+                </StackPanel>
+
+
+
+
+
+
+
+
+
+
+
+
+                    <!--<Image Width="100" x:Name="Image" Source="./Resources/Images/Houses/House.png"></Image>-->
+
+
+            </StackPanel>
+        </Border>
+
 
     </Grid>
+    
+
+
 
 
 
