@@ -9,32 +9,197 @@
         Height="500"
         Title="ArrayHouse">
 
-    
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition 
-                Width="*" 
-                MaxWidth="400"
-                MinWidth="150"/>
-            <ColumnDefinition Width="3*"></ColumnDefinition>
+                Width="*" MinWidth="200" MaxWidth="300"/>
+            <ColumnDefinition 
+                Width="4*"/>
         </Grid.ColumnDefinitions>
 
-        <GridSplitter Width="5" Background="Black" Grid.Column="0"></GridSplitter>
-        <Border  Grid.Column="0" Background="#0E8AA4" Margin="5 0 10 5" BorderThickness="1" BorderBrush="Black" CornerRadius="10">
+        <GridSplitter 
+            Width="5" 
+            Background="#DEF0F5"/>
+
+        <Border
+            Grid.Column="0"
+            Margin="0 0 10 0"
+            CornerRadius="0 10 0 0"
+            Background="#ADD8E6" BorderBrush="#ADD8E6">
             <StackPanel>
-                <Label Margin="5" Content="Enter number of Houses"></Label>
-                <TextBox Margin="5,2" TextWrapping="WrapWithOverflow" Text="Enter number of House"/>
-                <Label Margin="5" Content="Enter number of Houses"></Label>
-                <TextBox Margin="5,2" TextWrapping="WrapWithOverflow" Text="Enter number of House"/>
+                <Border
+                    Margin="10"
+                    CornerRadius="0 10 0 0"
+                    Background="#DEF0F5" BorderBrush="SkyBlue" BorderThickness="1">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Border
+                            Grid.ColumnSpan="2"
+                            Grid.Row="0"
+                            BorderBrush="SkyBlue" BorderThickness="0 0 0 1">
+                            <TextBlock
+                                Margin="5"
+                                Text="New ArrayHouse"/>
+                        </Border>
+
+                        <TextBlock 
+                            Grid.Column="0"
+                            Grid.Row="1" 
+                            Margin="5 10 5 0"
+                            Text="Houses:"/>
+
+                        <TextBox
+                            x:Name="NumberOfHouses"
+                            Grid.Column="2"
+                            Grid.Row="1"
+                            Margin="5 10 5 0"
+                            BorderBrush="SkyBlue" BorderThickness="1"/>
+
+                        <TextBlock 
+                            Grid.Column="0"
+                            Grid.Row="2"
+                            Margin="5 10 5 10"
+                            Text="Days:"/>
+
+                        <TextBox
+                            Grid.Column="2"
+                            Grid.Row="2"
+                            Margin="5 10 5 10"
+                            BorderBrush="SkyBlue" BorderThickness="1" Text=""/>
+
+                        <TextBlock 
+                            Grid.Column="0"
+                            Grid.Row="3"
+                            Margin="5 5 5 10"
+                            Text="Days:"/>
+
+                        <Button
+                            Grid.Column="1"></Button>
+                        
+                    </Grid>
+                </Border>
             </StackPanel>
         </Border>
 
-        <Border Grid.Column="1" Background="#eee" BorderThickness="1" BorderBrush="Black" CornerRadius="10" Margin="10">
-            
+        <Border
+            Grid.Column="1"
+            Margin="5 0 10 0"
+            BorderThickness="1" BorderBrush="#DEF0F5" CornerRadius="10 0 0 0"
+            Background="#DEF0F5">
+
+            <StackPanel>
+                <Border
+                    Margin="10"
+                    BorderBrush="SkyBlue" BorderThickness="0 0 0 1">
+                    <TextBlock
+                        Margin="5"
+                        Text="New ArrayHouse"/>
+                </Border>
+
+
+
+
+                <StackPanel Orientation="Horizontal">
+
+
+                    <Grid Height="100" Width="100">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="4*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+
+                        <StackPanel HorizontalAlignment="Center" Grid.Row="0" Orientation="Horizontal">
+                            <Line
+                            X2="15"
+                            VerticalAlignment="Center" 
+                            Margin="5" 
+                            Stroke="SkyBlue" StrokeThickness="1"/>
+                            <TextBlock
+                            Text="11" 
+                            VerticalAlignment="Center" 
+                            HorizontalAlignment="Center" 
+                            FontSize="16"/>
+                            <Line
+                            X2="15"
+                            VerticalAlignment="Center" 
+                            Margin="5" 
+                            Stroke="SkyBlue" StrokeThickness="1"/>
+                        </StackPanel>
+
+                        <!--<Image Grid.Row="1" Source="./Resources/Images/Houses/House.png"></Image>-->
+
+
+                    </Grid>
+                </StackPanel>
+
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <Grid x:Name="grdChampions" HorizontalAlignment="Left" VerticalAlignment="Top">
+ 
+
+                <ItemsControl x:Name="ArrayHouses">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="Black" BorderThickness="1" Margin="10" Padding="10">
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Path=HouseType}" />
+                                    <TextBlock Text="{Binding Path=Number}" />
+                                    <TextBlock Text="{Binding Path=Test}" />
+
+                                 </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+
+                    </Grid>
+                </ScrollViewer>
+                <Button Width="100" Height="20" Click="Button_Click"></Button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <!--<Image Width="100" x:Name="Image" Source="./Resources/Images/Houses/House.png"></Image>-->
+
+
+            </StackPanel>
         </Border>
 
 
-
     </Grid>
+
+
+
 
 </Window>

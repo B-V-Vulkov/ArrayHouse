@@ -1,5 +1,8 @@
-﻿using System;
+﻿using ArrayHouse.Models;
+using ArrayHouse.Models.Enumerations;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,14 +23,65 @@ namespace ArrayHouse
     /// </summary>
     public partial class MainWindow : Window
     {
+        public ObservableCollection<HouseModel> Houses { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+            this.Houses = new ObservableCollection<HouseModel>();
+
+
+
+
+            ArrayHouses.ItemsSource = this.Houses;
         }
 
-        private void TextBox_IsHitTestVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private void ToggleButton_Checked(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void CreateNewArrayHouse(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CreateNewArrayHouse_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Houses.Clear();
+
+            int n = int.Parse(NumberOfHouses.Text);
+
+            if (n == 50)
+            {
+                NumberOfHouses.Foreground = Brushes.Red;
+            }
+            else
+            {
+                NumberOfHouses.Foreground = Brushes.Blue;
+            }
+
+
+
+            for (int i = 1; i <= n; i++)
+            {
+                Houses.Add(new HouseModel { HouseType = HouseType.Inactive, Number = i });
+            }
+        }
+
+        private void NumberOfHouses_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            NumberOfHouses.Foreground = Brushes.Blue;
+        }
+
+        private void NumberOfHouses_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+            NumberOfHouses.Foreground = Brushes.Blue;
         }
     }
 }
