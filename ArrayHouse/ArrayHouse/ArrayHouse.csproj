@@ -8,7 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\Images\Houses\" />
+    <None Remove="Resources\Images\Houses\ActiveHouse.png" />
+    <None Remove="Resources\Images\Houses\InactiveHouse.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Houses\ActiveHouse.png" />
+    <Resource Include="Resources\Images\Houses\InactiveHouse.png" />
   </ItemGroup>
 
 </Project>
