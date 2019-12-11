@@ -9,21 +9,12 @@ ArrayHouse
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_0
-<<<<<<< HEAD
 C:\SoftUni\ArrayHouse\ArrayHouse\ArrayHouse\App.xaml
 11151548125
 
-61089950027
+5171369710
 192-1037106189
 MainWindow.xaml;
-=======
-D:\Projects\ArrayHouse\ArrayHouse\ArrayHouse\App.xaml
-1191675685
-1910859677
-2601155197
-1922017391033
-Styles\Buttons.xaml;
->>>>>>> fc5d7fcb25748042067f96de5d33b8bb3a4a6103
 
-True
+False
 

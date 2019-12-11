@@ -6,7 +6,7 @@
     {
         public int Number { get; set; }
 
-
+        public string UrlPicture { get; set; }
 
         public HouseType HouseType { get; set; }
     }
