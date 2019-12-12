@@ -56,6 +56,9 @@ namespace ArrayHouse
 
             Matrix.Matrix.Add(new ArrayHouseModel(1));
             Matrix.Matrix.Add(new ArrayHouseModel(2));
+            Matrix.Matrix.Add(new ArrayHouseModel(3));
+            Matrix.Matrix.Add(new ArrayHouseModel(4));
+            Matrix.Matrix.Add(new ArrayHouseModel(5));
 
             Matrix.Matrix[0].ArrayHouse.Add(new HouseModel { Number = 1 });
             Matrix.Matrix[0].ArrayHouse.Add(new HouseModel { Number = 2 });
