@@ -1,5 +1,6 @@
 ﻿using ArrayHouse.Models;
 using ArrayHouse.Models.Enumerations;
+using ArrayHouse.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,6 +18,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace ArrayHouse
 {
     /// <summary>
@@ -30,7 +32,7 @@ namespace ArrayHouse
 
         private const string URL_PICTURE_INACTIVE_HOUSE = "./Resources/Images/Houses/INActiveHouse.png";
 
-        private int numberOfHouse => 
+        private int numberOfHouse =>
             int.Parse(NumberOfHouses.Text);
 
         private HouseType defaultHouseType =>
@@ -42,9 +44,13 @@ namespace ArrayHouse
         private int days => int.Parse(Days.Text);
         private int currentDay;
 
+        public HouseService service { get; set; }
+
         #endregion
 
         public ObservableCollection<HouseModel> Houses { get; set; }
+
+        MatrixHouseModel Matrix { get; set; }
 
 
         public MainWindow()
@@ -52,19 +58,9 @@ namespace ArrayHouse
             InitializeComponent();
             this.Houses = new ObservableCollection<HouseModel>();
 
-            MatrixHouseModel Matrix = new MatrixHouseModel();
+            this.Matrix = new MatrixHouseModel();
 
-            Matrix.Matrix.Add(new ArrayHouseModel(1));
-            Matrix.Matrix.Add(new ArrayHouseModel(2));
-            Matrix.Matrix.Add(new ArrayHouseModel(3));
-            Matrix.Matrix.Add(new ArrayHouseModel(4));
-            Matrix.Matrix.Add(new ArrayHouseModel(5));
-
-            Matrix.Matrix[0].ArrayHouse.Add(new HouseModel { Number = 1 });
-            Matrix.Matrix[0].ArrayHouse.Add(new HouseModel { Number = 2 });
-            Matrix.Matrix[0].ArrayHouse.Add(new HouseModel { Number = 3 });
-
-            ArrayHouses.ItemsSource = this.Houses;
+            Array.ItemsSource = Houses;
 
             this.DataContext = Matrix;
         }
@@ -105,7 +101,11 @@ namespace ArrayHouse
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            for (int i = 1; i <= days; i++)
+            {
+                var currentArray = new ArrayHouseModel(Houses);
+                this.Matrix.Add(currentArray);
+            }
         }
     }
 }

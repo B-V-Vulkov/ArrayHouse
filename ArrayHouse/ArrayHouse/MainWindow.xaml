@@ -144,39 +144,6 @@
                         Margin="5"
                         Text="New ArrayHouse"/>
                 </Border>
-                
-                <!--<StackPanel Orientation="Horizontal">
-
-
-                    <Grid Height="100" Width="100">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="4*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-
-
-                        <StackPanel HorizontalAlignment="Center" Grid.Row="0" Orientation="Horizontal">
-                            <Line
-                            X2="15"
-                            VerticalAlignment="Center" 
-                            Margin="5" 
-                            Stroke="SkyBlue" StrokeThickness="1"/>
-                            <TextBlock
-                            Text="11" 
-                            VerticalAlignment="Center" 
-                            HorizontalAlignment="Center" 
-                            FontSize="16"/>
-                            <Line
-                            X2="15"
-                            VerticalAlignment="Center" 
-                            Margin="5" 
-                            Stroke="SkyBlue" StrokeThickness="1"/>
-                        </StackPanel>
-
-                    </Grid>
-                </StackPanel>-->
-
 
                 <ScrollViewer
                         VerticalScrollBarVisibility="Disabled"
@@ -187,7 +154,8 @@
 
                     <Grid HorizontalAlignment="Left" VerticalAlignment="Center">
 
-                        <ItemsControl x:Name="ArrayHouses">
+                        <ItemsControl x:Name="Array" ItemsSource="{Binding Houses}">
+                            
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <StackPanel Orientation="Horizontal"/>
@@ -241,52 +209,85 @@
                     </Grid>
                 </ScrollViewer>
 
-
                 <Button Width="100" Height="50" Click="Button_Click"></Button>
 
                 
-                
                 <ScrollViewer
-                        VerticalScrollBarVisibility="Disabled"
+                        VerticalScrollBarVisibility="Visible"
                         HorizontalScrollBarVisibility="Visible"
-                        Height="120"
+                        Height="300"
                         Margin="10 0"
                         Background="#ADD8E6">
 
-                    <ListView ItemsSource="{Binding Matrix}">
-                        
-                        <ListView.ItemsPanel>
+                    <ItemsControl ItemsSource="{Binding Matrix, Mode=OneWay}">
+
+                        <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <StackPanel Orientation="Vertical"/>
                             </ItemsPanelTemplate>
-                        </ListView.ItemsPanel>
-                        
-                        <ListView.ItemTemplate>
+                        </ItemsControl.ItemsPanel>
+
+                        <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
 
                                     <TextBlock Text="{Binding Day}"/>
 
-                                    <ListView ItemsSource="{Binding ArrayHouse}">
-                                        <ListView.ItemsPanel>
+                                    <ItemsControl ItemsSource="{Binding ArrayHouse}">
+                                        
+                                        <ItemsControl.ItemsPanel>
                                             <ItemsPanelTemplate>
                                                 <StackPanel Orientation="Horizontal"/>
                                             </ItemsPanelTemplate>
-                                        </ListView.ItemsPanel>
-                                        <ListView.ItemTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        
+                                        <ItemsControl.ItemTemplate>
                                             <DataTemplate>
-                                                <StackPanel Orientation="Horizontal">
-                                                    
-                                                    <TextBlock Foreground="Blue" Text="{Binding Number}"/>
 
-                                                </StackPanel>
+                                                    <Grid>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="*"/>
+                                                            <RowDefinition Height="3*"/>
+                                                            <RowDefinition Height="*"/>
+                                                        </Grid.RowDefinitions>
+
+                                                        <!--Numbers of house-->
+                                                        <StackPanel
+                                            Grid.Row="0"
+                                            Orientation="Horizontal"
+                                            HorizontalAlignment="Center">
+
+                                                            <Line
+                                                X2="30"
+                                                VerticalAlignment="Center"
+                                                Margin="2 5"
+                                                Stroke="Black" StrokeThickness="1"/>
+
+                                                            <TextBlock
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Center"
+                                                Text="{Binding Path=Number}"/>
+
+                                                            <Line
+                                                X2="30"
+                                                VerticalAlignment="Center"
+                                                Margin="2 5"
+                                                Stroke="Black" StrokeThickness="1"/>
+                                                        </StackPanel>
+
+                                                        <!--House Img-->
+                                                        <Image Width="100" Margin="1" Grid.Row="1" Source="{Binding Path=UrlPicture, Mode=TwoWay}"></Image>
+
+
+                                                    </Grid>
+                                      
                                             </DataTemplate>
-                                        </ListView.ItemTemplate>
-                                    </ListView>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
                                 </StackPanel>
                             </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
                     
                 </ScrollViewer>
 

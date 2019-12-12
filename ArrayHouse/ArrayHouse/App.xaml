@@ -5,25 +5,9 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
-        <Style x:Key="CreateButton" TargetType="Button">
-            <Setter Property="Background" Value="#DEF0F5"/>
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="0 10 10 0" BorderThickness="1" Background="{TemplateBinding Background}">
-                            <ContentPresenter Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
+        <ResourceDictionary Source="./Styles/Buttons.xaml"/>
 
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="SkyBlue"></Setter>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
+
 
     </Application.Resources>
 </Application>

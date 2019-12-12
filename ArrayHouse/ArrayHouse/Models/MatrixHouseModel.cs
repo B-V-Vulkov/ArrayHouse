@@ -10,5 +10,10 @@ namespace ArrayHouse.Models
         }
 
         public ObservableCollection<ArrayHouseModel> Matrix { get; set; }
+
+        public void Add(ArrayHouseModel houseModel)
+        {
+            this.Matrix.Add(houseModel);
+        }
     }
 }

@@ -4,14 +4,20 @@
 
     public class ArrayHouseModel
     {
-        public ArrayHouseModel(int day)
+        public ArrayHouseModel()
         {
-            this.Day = day;
             this.ArrayHouse = new ObservableCollection<HouseModel>();
+        }
+
+        public ArrayHouseModel(ObservableCollection<HouseModel> houseModels)
+        {
+            this.ArrayHouse = houseModels;
         }
 
         public int Day { get; set; }
 
         public ObservableCollection<HouseModel> ArrayHouse { get; set; }
+
+        public int Count => ArrayHouse.Count;
     }
 }
