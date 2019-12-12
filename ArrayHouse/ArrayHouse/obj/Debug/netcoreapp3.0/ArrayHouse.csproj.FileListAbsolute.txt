@@ -32,3 +32,4 @@ D:\Projects\ArrayHouse\ArrayHouse\ArrayHouse\obj\Debug\netcoreapp3.0\ArrayHouse.
 D:\Projects\ArrayHouse\ArrayHouse\ArrayHouse\obj\Debug\netcoreapp3.0\ArrayHouse.dll
 D:\Projects\ArrayHouse\ArrayHouse\ArrayHouse\obj\Debug\netcoreapp3.0\ArrayHouse.pdb
 D:\Projects\ArrayHouse\ArrayHouse\ArrayHouse\obj\Debug\netcoreapp3.0\App.baml
+C:\SoftUni\ArrayHouse\ArrayHouse\ArrayHouse\obj\Debug\netcoreapp3.0\App.baml
