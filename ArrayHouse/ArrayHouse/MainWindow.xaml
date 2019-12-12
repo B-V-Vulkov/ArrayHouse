@@ -187,7 +187,7 @@
 
                     <Grid HorizontalAlignment="Left" VerticalAlignment="Center">
 
-                        <ItemsControl x:Name="ArrayHouses" AlternationCount="{Binding Path=currentDay}">
+                        <ItemsControl x:Name="ArrayHouses">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <StackPanel Orientation="Horizontal"/>
@@ -240,6 +240,47 @@
 
                     </Grid>
                 </ScrollViewer>
+
+
+                <Button Width="100" Height="50" Click="Button_Click"></Button>
+
+                
+                
+                <ScrollViewer
+                        VerticalScrollBarVisibility="Disabled"
+                        HorizontalScrollBarVisibility="Visible"
+                        Height="120"
+                        Margin="10 0"
+                        Background="#ADD8E6">
+
+                    <ListView ItemsSource="{Binding Matrix}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+
+                                    <TextBlock Text="{Binding Day}"/>
+
+                                    <ListView ItemsSource="{Binding ArrayHouse}">
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                    
+                                                    <TextBlock Foreground="Blue" Text="{Binding Number}"/>
+
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    
+                </ScrollViewer>
+
+
+
+
 
             </StackPanel>
 

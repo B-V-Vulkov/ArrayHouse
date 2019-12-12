@@ -46,53 +46,24 @@ namespace ArrayHouse
 
         public ObservableCollection<HouseModel> Houses { get; set; }
 
-        public ObservableCollection<ObservableCollection<HouseModel>> Matrix { get; set; }
-
-        public ObservableCollection<HouseModel> CurrentHouses;
 
         public MainWindow()
         {
             InitializeComponent();
             this.Houses = new ObservableCollection<HouseModel>();
-            this.Matrix = new ObservableCollection<ObservableCollection<HouseModel>>();
-            this.CurrentHouses = new ObservableCollection<HouseModel>();
+
+            MatrixHouseModel Matrix = new MatrixHouseModel();
+
+            Matrix.Matrix.Add(new ArrayHouseModel(1));
+            Matrix.Matrix.Add(new ArrayHouseModel(2));
+
+            Matrix.Matrix[0].ArrayHouse.Add(new HouseModel { Number = 1 });
+            Matrix.Matrix[0].ArrayHouse.Add(new HouseModel { Number = 2 });
+            Matrix.Matrix[0].ArrayHouse.Add(new HouseModel { Number = 3 });
 
             ArrayHouses.ItemsSource = this.Houses;
 
-
-            Matrix.Add(new ObservableCollection<HouseModel>()
-            {
-                new HouseModel 
-                {
-                    Number = 1,
-                    HouseType = HouseType.Аctive,
-                    UrlPicture = URL_PICTURE_ACTIVE_HOUSE,
-                },
-                new HouseModel
-                {
-                    Number = 2,
-                    HouseType = HouseType.Inactive,
-                    UrlPicture = URL_PICTURE_INACTIVE_HOUSE,
-                },
-            });
-
-            Matrix.Add(new ObservableCollection<HouseModel>()
-            {
-                new HouseModel
-                {
-                    Number = 3,
-                    HouseType = HouseType.Inactive,
-                    UrlPicture = URL_PICTURE_INACTIVE_HOUSE,
-                },
-                new HouseModel
-                {
-                    Number = 4,
-                    HouseType = HouseType.Аctive,
-                    UrlPicture = URL_PICTURE_ACTIVE_HOUSE,
-                },
-            });
-
-
+            this.DataContext = Matrix;
         }
 
         private void CreateNewArrayHouse(object sender, RoutedEventArgs e)
@@ -127,6 +98,11 @@ namespace ArrayHouse
                 Houses[number - 1].UrlPicture = URL_PICTURE_ACTIVE_HOUSE;
                 Houses[number - 1].HouseType = HouseType.Аctive;
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
