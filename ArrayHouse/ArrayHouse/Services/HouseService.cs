@@ -5,24 +5,24 @@
 
     public class HouseService
     {
-        private MatrixHouseModel Matrix;
+        private MatrixHouse Matrix;
 
         public LinkedList<int> List = new LinkedList<int>();
 
-        public HouseService(int days, ArrayHouseModel currenArrayHouse)
+        public HouseService(int days, ArrayHouse currenArrayHouse)
         {
             Days = days;
 
             CurrenArrayHouse = currenArrayHouse;
 
-            this.Matrix = new MatrixHouseModel();
+            this.Matrix = new MatrixHouse();
         }
 
         public int Days { get; }
 
-        public ArrayHouseModel CurrenArrayHouse { get; }
+        public ArrayHouse CurrenArrayHouse { get; }
 
-        public MatrixHouseModel GetMatrixHouseModel()
+        public MatrixHouse GetMatrixHouseModel()
         {
             return Matrix;
         }

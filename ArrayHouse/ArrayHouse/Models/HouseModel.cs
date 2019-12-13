@@ -8,7 +8,7 @@
 
     public class HouseModel : INotifyPropertyChanged
     {
-        #region Private
+        #region Fields
 
         private int number;
 
@@ -16,9 +16,11 @@
 
         private HouseType houseType;
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         #endregion
 
-        #region Public
+        #region Properties
 
         public int Number
         {
@@ -61,11 +63,13 @@
 
         #endregion
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        #region Methods
 
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        #endregion
     }
 }

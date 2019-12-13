@@ -1,29 +1,12 @@
 ﻿using ArrayHouse.Models;
 using ArrayHouse.Models.Enumerations;
 using ArrayHouse.Services;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
 
 namespace ArrayHouse
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         #region Private
@@ -50,7 +33,7 @@ namespace ArrayHouse
 
         public ObservableCollection<HouseModel> Houses { get; set; }
 
-        MatrixHouseModel Matrix { get; set; }
+        MatrixHouse Matrix { get; set; }
 
 
         public MainWindow()
@@ -58,7 +41,7 @@ namespace ArrayHouse
             InitializeComponent();
             this.Houses = new ObservableCollection<HouseModel>();
 
-            this.Matrix = new MatrixHouseModel();
+            this.Matrix = new MatrixHouse();
 
             Array.ItemsSource = Houses;
 
@@ -99,13 +82,89 @@ namespace ArrayHouse
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Execute(object sender, RoutedEventArgs e)
         {
-            for (int i = 1; i <= days; i++)
+            int[] currentStatus = new int[numberOfHouse];
+            int[] nextStatus = new int[currentStatus.Length];
+
+            for (int i = 0; i < numberOfHouse; i++)
             {
-                var currentArray = new ArrayHouseModel(Houses);
-                this.Matrix.Add(currentArray);
+                if (Houses[i].HouseType == HouseType.Аctive)
+                {
+                    currentStatus[i] = 1;
+                }
             }
+
+            if (currentStatus[1] == 0)
+            {
+                nextStatus[0] = 0;
+            }
+            else
+            {
+                nextStatus[0] = 1;
+            }
+
+            if (currentStatus[currentStatus.Length - 2] == 0)
+            {
+                nextStatus[nextStatus.Length - 1] = 0;
+            }
+            else
+            {
+                nextStatus[nextStatus.Length - 1] = 1;
+            }
+
+            if (currentStatus[currentStatus.Length - 3] == currentStatus[currentStatus.Length - 1])
+            {
+                nextStatus[nextStatus.Length - 2] = 0;
+            }
+            else
+            {
+                nextStatus[nextStatus.Length - 2] = 1;
+            }
+
+            for (int i = 2; i < currentStatus.Length - 1; i++)
+            {
+                if (currentStatus[i] == currentStatus[i - 2])
+                {
+                    nextStatus[i - 1] = 0;
+                }
+                else
+                {
+                    nextStatus[i - 1] = 1;
+                }
+            }
+
+            Models.ArrayHouse arrayHouseModel = new Models.ArrayHouse();
+
+            for (int i = 0; i < numberOfHouse; i++)
+            {
+                var currentType = HouseType.Аctive;
+                var currentUrlPicture = URL_PICTURE_ACTIVE_HOUSE;
+
+                if (nextStatus[i] == 0)
+                {
+                    currentType = HouseType.Inactive;
+                    currentUrlPicture = URL_PICTURE_INACTIVE_HOUSE;
+                }
+
+                HouseModel currentHouse = new HouseModel
+                {
+                    Number = i,
+                    HouseType = currentType,
+                    UrlPicture = currentUrlPicture,
+                };
+
+                arrayHouseModel.Add(currentHouse);
+            }
+
+            Matrix.Add(arrayHouseModel);
+
+
+        }
+
+        private void Reset(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
