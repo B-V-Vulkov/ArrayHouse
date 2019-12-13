@@ -107,6 +107,11 @@
 
             HouseType[] nextStatus = new HouseType[length];
 
+            if (currentStatus.Length == 1)
+            {
+                return new HouseType[] { HouseType.Inactive };
+            }
+
             if (currentStatus[1] == HouseType.Inactive)
             {
                 nextStatus[0] = HouseType.Inactive;
@@ -125,14 +130,19 @@
                 nextStatus[length - 1] = HouseType.Аctive;
             }
 
-            if (currentStatus[length - 3] == currentStatus[length - 1])
+            if (currentStatus.Length != 2)
             {
-                nextStatus[length - 2] = HouseType.Inactive;
+                if (currentStatus[length - 3] == currentStatus[length - 1])
+                {
+                    nextStatus[length - 2] = HouseType.Inactive;
+                }
+                else
+                {
+                    nextStatus[length - 2] = HouseType.Аctive;
+                }
             }
-            else
-            {
-                nextStatus[length - 2] = HouseType.Аctive;
-            }
+
+
 
             for (int i = 2; i < length - 1; i++)
             {

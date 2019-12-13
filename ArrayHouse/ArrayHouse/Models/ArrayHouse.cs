@@ -11,12 +11,6 @@
             this.Houses = new ObservableCollection<House>();
         }
 
-        public ArrayHouse(int day, ObservableCollection<House> houses)
-        {
-            this.Day = day;
-            this.Houses = houses;
-        }
-
         #endregion
 
         #region Properties
@@ -31,15 +25,15 @@
 
         #region Methods
 
-        public void Add(House house)
-        {
-            this.Houses.Add(house);
-        }
+        //public void Add(House house)
+        //{
+        //    this.Houses.Add(house);
+        //}
 
-        public void Clear()
-        {
-            this.Houses.Clear();
-        }
+        //public void Clear()
+        //{
+        //    this.Houses.Clear();
+        //}
 
         #endregion
     }

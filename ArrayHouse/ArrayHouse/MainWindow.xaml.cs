@@ -1,18 +1,18 @@
 ﻿namespace ArrayHouse
 {
+    using System;
     using System.Windows;
     using System.Windows.Controls;
 
     using Services;
     using Commons;
     using Commons.Enumerations;
-    using System;
 
     public partial class MainWindow : Window
     {
         private HouseType defaultHouseType =>
-            DefaultHouseTypeIsActive.IsChecked == true 
-            ? HouseType.Аctive 
+            DefaultHouseTypeIsActive.IsChecked == true
+            ? HouseType.Аctive
             : HouseType.Inactive;
 
         public MainWindow()
@@ -26,6 +26,8 @@
 
         public HouseService HouseService { get; set; }
 
+        public int currentNumberOFHouse { get; set; }
+
         //TODO: Validate Method
         private int GetNumberOfHouse()
         {
@@ -33,10 +35,9 @@
 
             bool isValid = int.TryParse(NumberOfHouses.Text, out numberOfHouse);
 
-            if (!isValid || numberOfHouse < 0 || numberOfHouse > 100)
+            if (!isValid || numberOfHouse <= 0 || numberOfHouse > 100)
             {
                 ErrorMessageBlock.Text = ErrorMessage.INVALID_NUMBER_OF_HOUSES;
-                numberOfHouse = 0;
             }
             else
             {
@@ -52,10 +53,9 @@
 
             bool isValid = int.TryParse(Days.Text, out days);
 
-            if (!isValid || days < 0 || days > 100)
+            if (!isValid || days <= 0 || days > 100)
             {
                 ErrorMessageBlock.Text = ErrorMessage.INVALID_NUMBER_OF_DAYS;
-                days = 0;
             }
             else
             {
@@ -72,6 +72,7 @@
             if (numberOfHouse != 0)
             {
                 HouseService.InitializeNewArrayHouse(numberOfHouse, defaultHouseType);
+                currentNumberOFHouse = numberOfHouse;
             }
         }
 
@@ -95,11 +96,9 @@
 
         private void Reset(object sender, RoutedEventArgs e)
         {
-            int numberOfHouse = GetNumberOfHouse();
-
-            if (numberOfHouse != 0)
+            if (currentNumberOFHouse != 0)
             {
-                HouseService.InitializeNewArrayHouse(numberOfHouse, defaultHouseType);
+                HouseService.InitializeNewArrayHouse(currentNumberOFHouse, defaultHouseType);
                 HouseService.InitializeNewMatrixHouse(0);
             }
         }
