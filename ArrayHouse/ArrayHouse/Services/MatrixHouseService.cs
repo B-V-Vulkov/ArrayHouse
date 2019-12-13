@@ -3,13 +3,13 @@
     using ArrayHouse.Models;
     using System.Collections.Generic;
 
-    public class HouseService
+    public class MatrixHouseService
     {
         private MatrixHouse Matrix;
 
         public LinkedList<int> List = new LinkedList<int>();
 
-        public HouseService(int days, ArrayHouse currenArrayHouse)
+        public MatrixHouseService(int days, ArrayHouse currenArrayHouse)
         {
             Days = days;
 

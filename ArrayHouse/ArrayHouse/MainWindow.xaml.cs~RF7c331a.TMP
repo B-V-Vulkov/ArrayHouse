@@ -31,7 +31,7 @@ namespace ArrayHouse
 
         #endregion
 
-        public ArrayHouseService Houses { get; set; }
+        public ObservableCollection<HouseModel> Houses { get; set; }
 
         MatrixHouse Matrix { get; set; }
 
@@ -39,18 +39,28 @@ namespace ArrayHouse
         public MainWindow()
         {
             InitializeComponent();
-            this.Houses = new ArrayHouseService();
+            this.Houses = new ObservableCollection<HouseModel>();
 
             this.Matrix = new MatrixHouse();
 
-            Array.ItemsSource = Houses.ArrayHouse;
+            Array.ItemsSource = Houses;
 
             this.DataContext = Matrix;
         }
 
         private void CreateNewArrayHouse(object sender, RoutedEventArgs e)
         {
-            Houses.CreateNewArrayHouse(numberOfHouse, defaultHouseType);
+            this.Houses.Clear();
+
+            for (int i = 1; i <= numberOfHouse; i++)
+            {
+                Houses.Add(new HouseModel
+                {
+                    Number = i,
+                    HouseType = defaultHouseType,
+                    UrlPicture = defaultHouseUrlPicture,
+                });
+            }
         }
 
         private void ChangeHouseType(object sender, RoutedEventArgs e)
@@ -58,18 +68,18 @@ namespace ArrayHouse
             var button = (Button)sender;
             int number = int.Parse(button.CommandParameter.ToString());
 
-            //HouseType currentHouseType = Houses[number -1].HouseType;
+            HouseType currentHouseType = Houses[number -1].HouseType;
 
-            //if (currentHouseType == HouseType.Аctive)
-            //{
-            //    Houses[number - 1].UrlPicture = URL_PICTURE_INACTIVE_HOUSE;
-            //    Houses[number - 1].HouseType = HouseType.Inactive;
-            //}
-            //else
-            //{
-            //    Houses[number - 1].UrlPicture = URL_PICTURE_ACTIVE_HOUSE;
-            //    Houses[number - 1].HouseType = HouseType.Аctive;
-            //}
+            if (currentHouseType == HouseType.Аctive)
+            {
+                Houses[number - 1].UrlPicture = URL_PICTURE_INACTIVE_HOUSE;
+                Houses[number - 1].HouseType = HouseType.Inactive;
+            }
+            else
+            {
+                Houses[number - 1].UrlPicture = URL_PICTURE_ACTIVE_HOUSE;
+                Houses[number - 1].HouseType = HouseType.Аctive;
+            }
         }
 
         private void Execute(object sender, RoutedEventArgs e)
