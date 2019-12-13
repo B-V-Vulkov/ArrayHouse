@@ -1,4 +1,4 @@
-﻿namespace ArrayHouse.Models.Enumerations
+﻿namespace ArrayHouse.Commons.Enumerations
 {
     public enum HouseType
     {

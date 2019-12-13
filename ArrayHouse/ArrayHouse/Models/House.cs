@@ -4,9 +4,9 @@
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
 
-    using Enumerations;
+    using Commons.Enumerations;
 
-    public class HouseModel : INotifyPropertyChanged
+    public class House : INotifyPropertyChanged
     {
         #region Fields
 
@@ -16,9 +16,9 @@
 
         private HouseType houseType;
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
         #endregion
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         #region Properties
 

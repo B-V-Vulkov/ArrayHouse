@@ -8,10 +8,10 @@
 
         public ArrayHouse()
         {
-            this.Houses = new ObservableCollection<HouseModel>();
+            this.Houses = new ObservableCollection<House>();
         }
 
-        public ArrayHouse(int day, ObservableCollection<HouseModel> houses)
+        public ArrayHouse(int day, ObservableCollection<House> houses)
         {
             this.Day = day;
             this.Houses = houses;
@@ -23,7 +23,7 @@
 
         public int Day { get; set; }
 
-        public ObservableCollection<HouseModel> Houses { get; set; }
+        public ObservableCollection<House> Houses { get; set; }
 
         public int Count => Houses.Count;
 
@@ -31,9 +31,14 @@
 
         #region Methods
 
-        public void Add(HouseModel house)
+        public void Add(House house)
         {
             this.Houses.Add(house);
+        }
+
+        public void Clear()
+        {
+            this.Houses.Clear();
         }
 
         #endregion

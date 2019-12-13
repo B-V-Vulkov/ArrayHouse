@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ArrayHouse"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="ArrayHouse" Height="450" Width="800">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -14,8 +14,8 @@
             <ColumnDefinition 
                 Width="4*"/>
         </Grid.ColumnDefinitions>
-
-        <GridSplitter 
+        
+        <GridSplitter
             Width="5" 
             Background="#DEF0F5"/>
 
@@ -24,7 +24,10 @@
             Margin="0 0 10 0"
             CornerRadius="0 10 0 0"
             Background="#ADD8E6" BorderBrush="#ADD8E6">
+
             <StackPanel>
+
+                <!--New ArrayHouse-->
                 <Border
                     Margin="0 10 10 0"
                     CornerRadius="0 10 10 0"
@@ -82,6 +85,7 @@
                     </Grid>
                 </Border>
 
+                <!--Default Type of Houses-->
                 <Border
                     Margin="0 10 10 0"
                     CornerRadius="0 10 10 0"
@@ -120,6 +124,7 @@
                     </Grid>
                 </Border>
 
+                <!--CreateButton-->
                 <Button
                     x:Name="CreateButton"
                     Style="{StaticResource CreateButton}"
@@ -127,230 +132,249 @@
                     FontSize="14"
                     Content="Create"
                     Click="CreateNewArrayHouse"/>
+
+                <TextBlock 
+                    x:Name="ErrorMessageBlock"
+                    FontSize="12"
+                    Margin="10"
+                    TextWrapping="Wrap"
+                    Foreground="Red"
+                    TextAlignment="Center">
+                </TextBlock>
+
             </StackPanel>
+
         </Border>
 
-
-        <Grid Grid.Column="1">
-        
         <Border
             Grid.Column="1"
-            Margin="5 0 10 0"
+            Margin="5 0 0 0"
             BorderThickness="1" BorderBrush="#DEF0F5" CornerRadius="10 0 0 0"
             Background="#DEF0F5">
 
-            <StackPanel>
-                <Border
-                    Margin="10"
-                    BorderBrush="SkyBlue" BorderThickness="0 0 0 1">
-                    <TextBlock
-                        Margin="5"
-                        Text="New ArrayHouse"/>
-                </Border>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-                <ScrollViewer
+                <StackPanel
+                    Grid.Row="0">
+
+                    <Border
+                    Margin="10 10 0 10"
+                    BorderBrush="SkyBlue" BorderThickness="0 0 0 1">
+                        <TextBlock
+                        Margin="5"
+                        Text="Initialize"/>
+                    </Border>
+
+                    <ScrollViewer
                         VerticalScrollBarVisibility="Disabled"
                         HorizontalScrollBarVisibility="Visible"
                         Height="120"
-                        Margin="10 0"
+                        Margin="10 0 0 10"
                         Background="#ADD8E6">
 
-                    <Grid HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <Grid 
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center">
+                            <ItemsControl
+                            ItemsSource="{Binding ArrayHouse}">
 
-                        <ItemsControl x:Name="Array" ItemsSource="{Binding Houses}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal"/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
 
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <StackPanel Orientation="Horizontal"/>
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
 
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="3*"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
 
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="*"/>
-                                            <RowDefinition Height="3*"/>
-                                            <RowDefinition Height="*"/>
-                                        </Grid.RowDefinitions>
+                                            <!--Number of house-->
+                                            <StackPanel
+                                                Grid.Row="0"
+                                                Orientation="Horizontal"
+                                                HorizontalAlignment="Center">
 
-                                        <!--Numbers of house-->
-                                        <StackPanel
-                                            Grid.Row="0"
-                                            Orientation="Horizontal"
-                                            HorizontalAlignment="Center">
+                                                <Line
+                                                    X2="30"
+                                                    VerticalAlignment="Center"
+                                                    Margin="2 5"
+                                                    Stroke="Black" StrokeThickness="1"/>
 
-                                            <Line
-                                                X2="30"
-                                                VerticalAlignment="Center"
-                                                Margin="2 5"
-                                                Stroke="Black" StrokeThickness="1"/>
+                                                <TextBlock
+                                                    VerticalAlignment="Center"
+                                                    HorizontalAlignment="Center"
+                                                    Text="{Binding Path=Number}"/>
 
-                                            <TextBlock
-                                                VerticalAlignment="Center"
-                                                HorizontalAlignment="Center"
-                                                Text="{Binding Path=Number}"/>
+                                                <Line
+                                                    X2="30"
+                                                    VerticalAlignment="Center"
+                                                    Margin="2 5"
+                                                    Stroke="Black" StrokeThickness="1"/>
+                                            </StackPanel>
 
-                                            <Line
-                                                X2="30"
-                                                VerticalAlignment="Center"
-                                                Margin="2 5"
-                                                Stroke="Black" StrokeThickness="1"/>
-                                        </StackPanel>
+                                            <!--House Image-->
+                                            <Image 
+                                                Grid.Row="1"
+                                                Margin="1"
+                                                Source="{Binding Path=UrlPicture}"/>
 
-                                        <!--House Img-->
-                                        <Image Margin="1" Grid.Row="1" Source="{Binding Path=UrlPicture, Mode=TwoWay}"></Image>
+                                            <!--Change Button-->
+                                            <Button
+                                                x:Name="ChangeButton"
+                                                Grid.Row="2" 
+                                                Margin="1"
+                                                Height="30"
+                                                Width="100"
+                                                FontSize="10"
+                                                Content="Change"
+                                                Style="{StaticResource ChangeButton}"
+                                                CommandParameter="{Binding Path=Number}"
+                                                Click="ChangeHouseType"/>
 
-                                        <Button CommandParameter="{Binding Path=Number}" x:Name="changeButton" Margin="1" Grid.Row="2" Click="ChangeHouseType">Change</Button>
+                                        </Grid>
 
-                                    </Grid>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
 
-                    </Grid>
-                </ScrollViewer>
-
-                    <Border
-                    Margin="10"
-                    BorderBrush="SkyBlue" BorderThickness="0 0 0 1">
-                    </Border>
-
-                    <StackPanel 
-                    Orientation="Horizontal" Margin="10">
-
-                    <Button
-                    x:Name="ExecuteButton"
-                    Style="{StaticResource ExecuteButton}"
-                    Width="100"
-                    FontSize="14"
-                    Content="Execute"
-                    Click="Execute"/>
-
-                    <Button
-                    x:Name="ExecuteButtonr"
-                    Style="{StaticResource ExecuteButton}"
-                    Width="100"
-                    FontSize="14"
-                    Content="Reset"
-                    Click="Reset"/>
-
-                </StackPanel>
-
-                    <Border
-                    Margin="10"
-                    BorderBrush="SkyBlue" BorderThickness="0 0 0 1">
-                    </Border>
-
-
-
-
-                    <ScrollViewer
-                        VerticalScrollBarVisibility="Visible"
-                        HorizontalScrollBarVisibility="Visible"
-                        Background="#ADD8E6">
-
-
-                        <ItemsControl ItemsSource="{Binding Matrix}" >
-
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <StackPanel Orientation="Vertical"/>
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
-
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-
-                                        <TextBlock Text="{Binding Day}"/>
-
-                                        <ItemsControl ItemsSource="{Binding Houses}">
-
-                                            <ItemsControl.ItemsPanel>
-                                                <ItemsPanelTemplate>
-                                                    <StackPanel Orientation="Horizontal"/>
-                                                </ItemsPanelTemplate>
-                                            </ItemsControl.ItemsPanel>
-
-                                            <ItemsControl.ItemTemplate>
-                                                <DataTemplate>
-
-                                                    <Grid>
-                                                        <Grid.RowDefinitions>
-                                                            <RowDefinition Height="*"/>
-                                                            <RowDefinition Height="3*"/>
-                                                            <RowDefinition Height="*"/>
-                                                        </Grid.RowDefinitions>
-
-                                                        <!--Numbers of house-->
-                                                        <StackPanel
-                                            Grid.Row="0"
-                                            Orientation="Horizontal"
-                                            HorizontalAlignment="Center">
-
-                                                            <Line
-                                                X2="30"
-                                                VerticalAlignment="Center"
-                                                Margin="2 5"
-                                                Stroke="Black" StrokeThickness="1"/>
-
-                                                            <TextBlock
-                                                VerticalAlignment="Center"
-                                                HorizontalAlignment="Center"
-                                                Text="{Binding Path=Number}"/>
-
-                                                            <Line
-                                                X2="30"
-                                                VerticalAlignment="Center"
-                                                Margin="2 5"
-                                                Stroke="Black" StrokeThickness="1"/>
-                                                        </StackPanel>
-
-                                                        <!--House Img-->
-                                                        <Image Width="100" Margin="1" Grid.Row="1" Source="{Binding Path=UrlPicture, Mode=TwoWay}"></Image>
-
-
-                                                    </Grid>
-
-                                                </DataTemplate>
-                                            </ItemsControl.ItemTemplate>
-                                        </ItemsControl>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
+                        </Grid>
 
                     </ScrollViewer>
 
+                    <Border
+                    Margin="10 0 0 0"
+                    Background="#ADD8E6" BorderBrush="#ADD8E6"
+                    CornerRadius="10 0 0 10" BorderThickness="1">
 
+                        <StackPanel 
+                        Orientation="Horizontal" 
+                        Margin="10">
 
+                            <Button
+                            x:Name="ExecuteButton"
+                            Style="{StaticResource ExecutionButton}"
+                            Width="120"
+                            Margin="0 0 30 0"
+                            FontSize="14"
+                            Content="Execute"
+                            Click="Execute"/>
 
+                            <Button
+                            x:Name="ResetButtonr"
+                            Style="{StaticResource ExecutionButton}"
+                            Width="120"
+                            Margin="0 0 30 0"
+                            FontSize="14"
+                            Content="Reset"
+                            Click="Reset"/>
 
+                        </StackPanel>
 
+                    </Border>
 
+                    <Border
+                    Margin="10 10 0 0"
+                    BorderBrush="SkyBlue" BorderThickness="0 0 0 1">
+                        <TextBlock
+                        Margin="5"
+                        Text="Result"/>
+                    </Border>
 
+                </StackPanel>
 
+                <ScrollViewer
+                    Grid.Row="1"
+                    Margin="10 10 0 0"
+                    VerticalScrollBarVisibility="Visible"
+                    HorizontalScrollBarVisibility="Visible"
+                    Background="#ADD8E6">
 
+                    <ItemsControl ItemsSource="{Binding MatrixHouse}">
 
-            </StackPanel>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+
+                        <ItemsControl.ItemTemplate>
+                            
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+
+                                    <TextBlock Text="{Binding Day}"/>
+
+                                    <ItemsControl ItemsSource="{Binding Houses}">
+
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <StackPanel Orientation="Horizontal"/>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+
+                                                <Grid Height="90">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"/>
+                                                        <RowDefinition Height="3*"/>
+                                                    </Grid.RowDefinitions>
+
+                                                    <!--Numbers of house-->
+                                                    <StackPanel
+                                                        Grid.Row="0"
+                                                        Orientation="Horizontal"
+                                                        HorizontalAlignment="Center">
+
+                                                        <Line
+                                                            X2="30"
+                                                            VerticalAlignment="Center"
+                                                            Margin="2 5"
+                                                            Stroke="Black" StrokeThickness="1"/>
+
+                                                        <TextBlock
+                                                            VerticalAlignment="Center"
+                                                            HorizontalAlignment="Center"
+                                                            Text="{Binding Path=Number}"/>
+
+                                                        <Line
+                                                            X2="30"
+                                                            VerticalAlignment="Center"
+                                                            Margin="2 5"
+                                                            Stroke="Black" StrokeThickness="1"/>
+                                                    </StackPanel>
+
+                                                    <!--House Image-->
+                                                    <Image 
+                                                        Grid.Row="1" 
+                                                        Width="100" 
+                                                        Margin="1" 
+                                                        Source="{Binding Path=UrlPicture, Mode=TwoWay}"/>
+                                                </Grid>
+
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+
+                                    </ItemsControl>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </Grid>
 
         </Border>
-
-        </Grid>
-
-
-
-
-
-
-
-
-        <!--<Image Width="100" x:Name="Image" Source="./Resources/Images/Houses/House.png"></Image>-->
-
-
-
-
+        
     </Grid>
 </Window>
