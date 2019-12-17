@@ -9,14 +9,9 @@ namespace DemoCanvas.Views
 
         public int Age { get; set; }
 
-        public double CanvasStartPosition { get; set; }
-
-        public double CanvasEndPosition { get; set; }
-
-        public string BeginTime { get; set; }
-
         public Person()
         {
+
         }
     }
 }

@@ -30,28 +30,6 @@ namespace DemoCanvas
             MainViewModel mainViewModel = new MainViewModel();
 
             DataContext = mainViewModel;
-
-            mainViewModel.People.Add(new Person
-            {
-                Name = "Ivan",
-                CanvasStartPosition = 0,
-                CanvasEndPosition = 0,
-                BeginTime = "0:0:0.0",
-            });
-
-            mainViewModel.People.Add(new Person
-            {
-                Name = "Pesho",
-                CanvasStartPosition = 0,
-                CanvasEndPosition = 20,
-                BeginTime = "0:0:0.5",
-            });
-
-        }
-
-        private void MyTextBlock_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-
         }
     }
 }
