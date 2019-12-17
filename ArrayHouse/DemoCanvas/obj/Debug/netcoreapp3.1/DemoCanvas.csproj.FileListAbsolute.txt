@@ -1,0 +1,17 @@
+D:\Projects\ArrayHouse\ArrayHouse\DemoCanvas\bin\Debug\netcoreapp3.1\DemoCanvas.exe
+D:\Projects\ArrayHouse\ArrayHouse\DemoCanvas\bin\Debug\netcoreapp3.1\DemoCanvas.deps.json
+D:\Projects\ArrayHouse\ArrayHouse\DemoCanvas\bin\Debug\netcoreapp3.1\DemoCanvas.runtimeconfig.json
+D:\Projects\ArrayHouse\ArrayHouse\DemoCanvas\bin\Debug\netcoreapp3.1\DemoCanvas.runtimeconfig.dev.json
+D:\Projects\ArrayHouse\ArrayHouse\DemoCanvas\bin\Debug\netcoreapp3.1\DemoCanvas.dll
+D:\Projects\ArrayHouse\ArrayHouse\DemoCanvas\bin\Debug\netcoreapp3.1\DemoCanvas.pdb
+D:\Projects\ArrayHouse\ArrayHouse\DemoCanvas\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+D:\Projects\ArrayHouse\ArrayHouse\DemoCanvas\obj\Debug\netcoreapp3.1\App.g.cs
+D:\Projects\ArrayHouse\ArrayHouse\DemoCanvas\obj\Debug\netcoreapp3.1\DemoCanvas_MarkupCompile.cache
+D:\Projects\ArrayHouse\ArrayHouse\DemoCanvas\obj\Debug\netcoreapp3.1\DemoCanvas_MarkupCompile.lref
+D:\Projects\ArrayHouse\ArrayHouse\DemoCanvas\obj\Debug\netcoreapp3.1\MainWindow.baml
+D:\Projects\ArrayHouse\ArrayHouse\DemoCanvas\obj\Debug\netcoreapp3.1\DemoCanvas.g.resources
+D:\Projects\ArrayHouse\ArrayHouse\DemoCanvas\obj\Debug\netcoreapp3.1\DemoCanvas.AssemblyInfoInputs.cache
+D:\Projects\ArrayHouse\ArrayHouse\DemoCanvas\obj\Debug\netcoreapp3.1\DemoCanvas.AssemblyInfo.cs
+D:\Projects\ArrayHouse\ArrayHouse\DemoCanvas\obj\Debug\netcoreapp3.1\DemoCanvas.dll
+D:\Projects\ArrayHouse\ArrayHouse\DemoCanvas\obj\Debug\netcoreapp3.1\DemoCanvas.pdb
+D:\Projects\ArrayHouse\ArrayHouse\DemoCanvas\obj\Debug\netcoreapp3.1\DemoCanvas.csprojAssemblyReference.cache

@@ -35,3 +35,4 @@ D:\Projects\ArrayHouse\ArrayHouse\ArrayHouse\obj\Debug\netcoreapp3.0\MainWindow.
 D:\Projects\ArrayHouse\ArrayHouse\ArrayHouse\obj\Debug\netcoreapp3.0\ArrayHouse.g.resources
 D:\Projects\ArrayHouse\ArrayHouse\ArrayHouse\obj\Debug\netcoreapp3.0\ArrayHouse.AssemblyInfoInputs.cache
 D:\Projects\ArrayHouse\ArrayHouse\ArrayHouse\obj\Debug\netcoreapp3.0\ArrayHouse.AssemblyInfo.cs
+D:\Projects\ArrayHouse\ArrayHouse\ArrayHouse\obj\Debug\netcoreapp3.0\ArrayHouse.csprojAssemblyReference.cache

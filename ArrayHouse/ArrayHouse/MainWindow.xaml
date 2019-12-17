@@ -179,7 +179,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center">
                             <ItemsControl
-                            ItemsSource="{Binding ArrayHouse}">
+                                ItemsSource="{Binding ArrayHouse}">
 
                                 <ItemsControl.ItemsPanel>
                                     <ItemsPanelTemplate>
