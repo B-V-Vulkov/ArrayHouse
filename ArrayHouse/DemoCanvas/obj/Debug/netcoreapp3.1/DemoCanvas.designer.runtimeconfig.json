@@ -3,7 +3,7 @@
     "tfm": "netcoreapp3.1",
     "framework": {
       "name": "Microsoft.WindowsDesktop.App",
-      "version": "3.1.0-preview3.19553.2"
+      "version": "3.1.0"
     },
     "additionalProbingPaths": [
       "C:\\Users\\borislav.valkov\\.dotnet\\store\\|arch|\\|tfm|",

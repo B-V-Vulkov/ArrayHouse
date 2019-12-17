@@ -20,44 +20,44 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <ItemsControl ItemsSource="{Binding Path=People}">
+
+        <ItemsControl x:Name="ItemsControl" ItemsSource="{Binding Path=People}">
 
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <StackPanel x:Name="Text" IsItemsHost="True">
+                    <StackPanel x:Name="Text">
                     </StackPanel>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
 
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-
                     <Canvas x:Name="MyCanvas">
-                        <TextBlock x:Name="Text"
+                        <TextBlock x:Name="MyTextBlock"
                                    Text="{Binding Path=Name}"
-                                   Canvas.Top="{Binding Path=CanvasTop}">
+                                   Canvas.Top="{Binding Path=CanvasTop}"
+                                   Opacity="0">
                         </TextBlock>
-
                         <Canvas.Triggers>
                             <EventTrigger RoutedEvent="Loaded">
-                                
                                 <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="Text" 
-                                             Storyboard.TargetProperty="(Canvas.Top)"
-                                             From="{Binding Path=CanvasStartPosition}" To="{Binding Path=CanvasEndPosition}" Duration="0:0:2" />
+                                    <Storyboard BeginTime="{Binding BeginTime}">
 
-                                        <DoubleAnimation Storyboard.TargetName="Text"
-                                             Storyboard.TargetProperty="Opacity" 
-                                             From="0" To="1" Duration="0:0:2"/>
+                                        <DoubleAnimation Storyboard.TargetName="MyTextBlock"
+                                                         Storyboard.TargetProperty="(Canvas.Top)"
+                                                         From="{Binding Path=CanvasStartPosition}" 
+                                                         To="{Binding Path=CanvasEndPosition}"
+                                                         Duration="0:0:2"/>
+
+                                        <DoubleAnimation Storyboard.TargetName="MyTextBlock"
+                                                         Storyboard.TargetProperty="Opacity" 
+                                                         From="0" To="1" 
+                                                         Duration="0:0:2"/>
                                     </Storyboard>
-
                                 </BeginStoryboard>
                             </EventTrigger>
                         </Canvas.Triggers>
-
                     </Canvas>
-
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
 

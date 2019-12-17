@@ -31,13 +31,27 @@ namespace DemoCanvas
 
             DataContext = mainViewModel;
 
-            mainViewModel.People.Add(new Person("Pesho", 23, 0, 0));
-            mainViewModel.People.Add(new Person("Ivan", 12, 0, 10));
-            mainViewModel.People.Add(new Person("Gosho", 43, 10, 20));
-            mainViewModel.People.Add(new Person("Misho", 83, 20, 30));
-            mainViewModel.People.Add(new Person("Misho", 83, 30, 40));
-            mainViewModel.People.Add(new Person("Misho", 83, 40, 50));
-            mainViewModel.People.Add(new Person("Misho", 83, 50, 60));
+            mainViewModel.People.Add(new Person
+            {
+                Name = "Ivan",
+                CanvasStartPosition = 0,
+                CanvasEndPosition = 0,
+                BeginTime = "0:0:0.0",
+            });
+
+            mainViewModel.People.Add(new Person
+            {
+                Name = "Pesho",
+                CanvasStartPosition = 0,
+                CanvasEndPosition = 20,
+                BeginTime = "0:0:0.5",
+            });
+
+        }
+
+        private void MyTextBlock_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+
         }
     }
 }

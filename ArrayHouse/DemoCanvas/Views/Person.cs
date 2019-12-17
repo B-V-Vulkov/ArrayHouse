@@ -1,4 +1,7 @@
-﻿namespace DemoCanvas.Views
+﻿using System;
+using System.Windows.Media.Animation;
+
+namespace DemoCanvas.Views
 {
     public class Person
     {
@@ -10,12 +13,10 @@
 
         public double CanvasEndPosition { get; set; }
 
-        public Person(string name, int age, double canvasStartPosition, double canvasEndPosition)
+        public string BeginTime { get; set; }
+
+        public Person()
         {
-            Name = name;
-            Age = age;
-            CanvasStartPosition = canvasStartPosition;
-            CanvasEndPosition = canvasEndPosition;
         }
     }
 }
