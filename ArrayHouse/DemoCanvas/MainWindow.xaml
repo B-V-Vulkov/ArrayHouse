@@ -27,8 +27,7 @@
 
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <StackPanel>
-                    </StackPanel>
+                    <StackPanel/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
 
