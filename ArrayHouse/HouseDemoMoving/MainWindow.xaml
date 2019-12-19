@@ -27,23 +27,19 @@
                 Content="Create"
                 Click="CreateNewArrayHouse"/>
 
-
-        <Button x:Name="ExecuteButton"
+        <Button x:Name="MoveButton"
                 Grid.Column="1" Grid.Row="3"
                 Width="100" Height="50"
-                Content="Execute"
-                Click="Execute"/>
+                Content="Move"
+                Click="Move"/>
 
-        <Canvas
-            Grid.Column="1"
-            Grid.Row="0">
-            <TextBlock x:Name="House1"
-                       Text="{Binding Number}"
-                       Canvas.Left="{Binding XPosition}"
-                       Canvas.Top="{Binding YPosition}" 
-                       Background="SkyBlue">
-            </TextBlock>
+        <Canvas x:Name="MainCanvas"
+                Grid.ColumnSpan="4"
+                Grid.Row="1">
         </Canvas>
+        
+
+
 
     </Grid>
 </Window>
