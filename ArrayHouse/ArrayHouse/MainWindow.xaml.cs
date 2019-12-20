@@ -3,10 +3,15 @@
     using System;
     using System.Windows;
     using System.Windows.Controls;
+    using System.Media;
 
     using Services;
     using Commons;
     using Commons.Enumerations;
+    using System.Collections.Generic;
+    using ArrayHouse.Models;
+    using System.Windows.Media;
+    using System.Windows.Shapes;
 
     public partial class MainWindow : Window
     {
@@ -21,8 +26,12 @@
 
             this.HouseService = new HouseService();
 
+            this.InitializeHouses = new List<House>();
+
             this.DataContext = HouseService;
         }
+
+        public List<House> InitializeHouses { get; set; }
 
         public HouseService HouseService { get; set; }
 
@@ -69,11 +78,69 @@
         {
             int numberOfHouse = GetNumberOfHouse();
 
-            if (numberOfHouse != 0)
+            this.InitializeHouses.Clear();
+
+            var number = GetVerticalNumber(1);
+
+            InitializeCanvas.Children.Add(number);
+
+            for (int i = 0; i < numberOfHouse; i++)
             {
-                HouseService.InitializeNewArrayHouse(numberOfHouse, defaultHouseType);
-                currentNumberOFHouse = numberOfHouse;
+
             }
+
+            //if (numberOfHouse != 0)
+            //{
+            //    HouseService.InitializeNewArrayHouse(numberOfHouse, defaultHouseType);
+            //    currentNumberOFHouse = numberOfHouse;
+            //}
+        }
+
+        private UIElement GetPicture()
+        {
+            Image image = new Image();
+
+            return image;
+        }
+
+        private UIElement GetVerticalNumber(int number)
+        {
+            Grid grid = new Grid();
+            grid.Width = 100;
+            grid.Height = 20;
+
+            grid.ColumnDefinitions.Add(new ColumnDefinition ());
+            grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto});
+            grid.ColumnDefinitions.Add(new ColumnDefinition ());
+
+            TextBlock textBlock = new TextBlock();
+            textBlock.Text = number.ToString();
+            textBlock.Foreground = new SolidColorBrush(Color.FromRgb(14, 138, 164));
+
+            Line firstLine = CreateHorizontalLine();
+            Line secondLine = CreateHorizontalLine();
+
+            Grid.SetColumn(firstLine, 0);
+            Grid.SetColumn(textBlock, 1);
+            Grid.SetColumn(firstLine, 2);
+
+            grid.Children.Add(textBlock);
+            grid.Children.Add(firstLine);
+            grid.Children.Add(secondLine);
+
+            return grid;
+        }
+
+        private Line CreateHorizontalLine()
+        {
+            Line line = new Line();
+            line.X2 = 40;
+            line.Margin = new Thickness(5);
+            line.Stroke = Brushes.White;
+            line.StrokeThickness = 1;
+            line.VerticalAlignment = VerticalAlignment.Center;
+
+            return line;
         }
 
         private void ChangeHouseType(object sender, RoutedEventArgs e)

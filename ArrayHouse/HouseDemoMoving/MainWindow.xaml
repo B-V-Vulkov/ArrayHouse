@@ -33,11 +33,27 @@
                 Content="Move"
                 Click="Move"/>
 
-        <Canvas x:Name="MainCanvas"
-                Grid.ColumnSpan="4"
-                Grid.Row="1">
-        </Canvas>
-        
+        <ScrollViewer AllowDrop="True" Grid.ColumnSpan="4" Grid.Row="1" 
+                      VerticalScrollBarVisibility="Visible"
+                      HorizontalScrollBarVisibility="Visible">
+
+            <Canvas x:Name="MainCanvas" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ScrollViewer.CanContentScroll="True" >
+            </Canvas>
+
+        </ScrollViewer>
+
+        <ScrollViewer x:Name="MyScroll" HorizontalScrollBarVisibility="Visible" >
+
+                <Canvas Width="800" Height="200">
+                    <TextBlock Canvas.Top="10" Text="dsdsdddddddddddddddddddddddddddddddd"></TextBlock>
+                    <TextBlock Text="dsdsdddddddddddddddddddddddddddddddd"></TextBlock>
+                    <TextBlock Text="dsdsdddddddddddddddddddddddddddddddd"></TextBlock>
+                    <TextBlock Text="dsdsdddddddddddddddddddddddddddddddd"></TextBlock>
+                </Canvas>
+
+        </ScrollViewer>
+
+
 
 
 

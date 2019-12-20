@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Runtime.CompilerServices;
@@ -9,46 +11,46 @@ using System.Windows.Threading;
 
 namespace HouseDemoMoving
 {
-    public partial class MainWindow : Window, INotifyPropertyChanged
+    public partial class MainWindow : Window
     {
-        private StackPanel stackPanel;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public MainWindow()
         {
             InitializeComponent();
+            HouseWrapper = new ObservableCollection<StackPanel>();
+
+            IndexesForUpDate = new Stack<int>();
+            IndexesForUpDate.Push(1);
+            IndexesForUpDate.Push(4);
+            IndexesForUpDate.Push(5);
+            IndexesForUpDate.Push(7);
+            IndexesForUpDate.Push(12);
         }
 
-        StackPanel StackPanel
-        {
-            get
-            {
-                return this.stackPanel;
-            }
-            set
-            {
-                this.stackPanel = value;
-            }
-        }
+        private ObservableCollection<StackPanel> HouseWrapper { get; set; }
+
+        private Stack<int> IndexesForUpDate { get; set; }
 
         private void CreateNewArrayHouse(object sender, RoutedEventArgs e)
         {
+
+            MyScroll.ScrollToEnd();
+
             MainCanvas.Children.Clear();
 
             int n = 0;
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 15; i++)
             {
                 TextBlock textBlock = new TextBlock();
                 textBlock.Text = "Test";
+                textBlock.Width = 100;
 
-                this.StackPanel = new StackPanel();
-                StackPanel.Children.Add(textBlock);
+                this.HouseWrapper.Add(new StackPanel());
+                HouseWrapper[i].Children.Add(textBlock);
 
-                Canvas.SetLeft(StackPanel, n);
+                Canvas.SetLeft(HouseWrapper[i], n);
 
-                MainCanvas.Children.Add(StackPanel);
+                MainCanvas.Children.Add(HouseWrapper[i]);
 
                 n += 50;
             }
@@ -56,11 +58,20 @@ namespace HouseDemoMoving
 
         private void Move(object sender, RoutedEventArgs e)
         {
+
             for (int i = 0; i < 100; i++)
             {
-                Canvas.SetTop(StackPanel, i);
+                Stack<int> currentIndexes = new Stack<int>(IndexesForUpDate);
+
+                while (currentIndexes.Count != 0)
+                {
+                    int currentI = currentIndexes.Pop();
+
+                    Canvas.SetTop(HouseWrapper[currentI], i);
+                }
+
                 Thread.Sleep(10);
-                this.StackPanel.Dispatcher.Invoke(DispatcherPriority.Render, EmptyDelegate);
+                Dispatcher.Invoke(DispatcherPriority.Render, EmptyDelegate);
             }
         }
 

@@ -1,14 +1,10 @@
 ﻿namespace ArrayHouse.Models
 {
-    using System;
-    using System.ComponentModel;
-    using System.Runtime.CompilerServices;
-
     using Commons.Enumerations;
 
-    public class House : INotifyPropertyChanged
+    public class House : BaseModel
     {
-        #region Fields
+        #region Declarations
 
         private int number;
 
@@ -16,9 +12,14 @@
 
         private HouseType houseType;
 
+        private double xPosition;
+
+        private double yPosition;
+
         #endregion
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        #region Initializations
+        #endregion
 
         #region Properties
 
@@ -61,15 +62,35 @@
             }
         }
 
+        public double XPosition
+        {
+            get
+            {
+                return this.xPosition;
+            }
+            set
+            {
+                this.xPosition = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public double YPosition
+        {
+            get
+            {
+                return this.yPosition;
+            }
+            set
+            {
+                this.yPosition = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         #endregion
 
         #region Methods
-
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         #endregion
     }
 }

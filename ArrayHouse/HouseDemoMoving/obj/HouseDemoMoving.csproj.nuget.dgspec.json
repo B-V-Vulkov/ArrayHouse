@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\SoftUni\\ArrayHouse\\ArrayHouse\\HouseDemoMoving\\HouseDemoMoving.csproj": {}
+    "D:\\Projects\\ArrayHouse\\ArrayHouse\\HouseDemoMoving\\HouseDemoMoving.csproj": {}
   },
   "projects": {
-    "C:\\SoftUni\\ArrayHouse\\ArrayHouse\\HouseDemoMoving\\HouseDemoMoving.csproj": {
+    "D:\\Projects\\ArrayHouse\\ArrayHouse\\HouseDemoMoving\\HouseDemoMoving.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\SoftUni\\ArrayHouse\\ArrayHouse\\HouseDemoMoving\\HouseDemoMoving.csproj",
+        "projectUniqueName": "D:\\Projects\\ArrayHouse\\ArrayHouse\\HouseDemoMoving\\HouseDemoMoving.csproj",
         "projectName": "HouseDemoMoving",
-        "projectPath": "C:\\SoftUni\\ArrayHouse\\ArrayHouse\\HouseDemoMoving\\HouseDemoMoving.csproj",
-        "packagesPath": "C:\\Users\\vulko\\.nuget\\packages\\",
-        "outputPath": "C:\\SoftUni\\ArrayHouse\\ArrayHouse\\HouseDemoMoving\\obj\\",
+        "projectPath": "D:\\Projects\\ArrayHouse\\ArrayHouse\\HouseDemoMoving\\HouseDemoMoving.csproj",
+        "packagesPath": "C:\\Users\\borislav.valkov\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\ArrayHouse\\ArrayHouse\\HouseDemoMoving\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\vulko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\borislav.valkov\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -47,6 +47,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.0.1, 3.0.1]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.0.1, 3.0.1]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.0.0, 3.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.0.0, 3.0.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -55,7 +73,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
