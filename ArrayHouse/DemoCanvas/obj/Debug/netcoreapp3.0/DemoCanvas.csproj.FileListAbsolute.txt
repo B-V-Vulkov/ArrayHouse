@@ -33,3 +33,6 @@ D:\Projects\ArrayHouse\ArrayHouse\DemoCanvas\obj\Debug\netcoreapp3.0\DemoCanvas.
 D:\Projects\ArrayHouse\ArrayHouse\DemoCanvas\bin\Debug\netcoreapp3.0\DocumentFormat.OpenXml.dll
 D:\Projects\ArrayHouse\ArrayHouse\DemoCanvas\obj\Debug\netcoreapp3.0\DemoCanvas.csproj.CopyComplete
 D:\Projects\ArrayHouse\ArrayHouse\DemoCanvas\obj\Debug\netcoreapp3.0\DemoCanvas.csprojAssemblyReference.cache
+C:\SoftUni\ArrayHouse\ArrayHouse\DemoCanvas\bin\Debug\netcoreapp3.0\DocumentFormat.OpenXml.dll
+C:\SoftUni\ArrayHouse\ArrayHouse\DemoCanvas\obj\Debug\netcoreapp3.0\DemoCanvas.csprojAssemblyReference.cache
+C:\SoftUni\ArrayHouse\ArrayHouse\DemoCanvas\obj\Debug\netcoreapp3.0\DemoCanvas.csproj.CopyComplete
