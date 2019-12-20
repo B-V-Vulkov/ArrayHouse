@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\borislav.valkov\\.nuget\\packages\\": {}
+    "C:\\Users\\vulko\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\ArrayHouse\\ArrayHouse\\DemoAsynchronousProgramming\\DemoAsynchronousProgramming.csproj",
+      "projectUniqueName": "C:\\SoftUni\\ArrayHouse\\ArrayHouse\\DemoAsynchronousProgramming\\DemoAsynchronousProgramming.csproj",
       "projectName": "DemoAsynchronousProgramming",
-      "projectPath": "D:\\Projects\\ArrayHouse\\ArrayHouse\\DemoAsynchronousProgramming\\DemoAsynchronousProgramming.csproj",
-      "packagesPath": "C:\\Users\\borislav.valkov\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\ArrayHouse\\ArrayHouse\\DemoAsynchronousProgramming\\obj\\",
+      "projectPath": "C:\\SoftUni\\ArrayHouse\\ArrayHouse\\DemoAsynchronousProgramming\\DemoAsynchronousProgramming.csproj",
+      "packagesPath": "C:\\Users\\vulko\\.nuget\\packages\\",
+      "outputPath": "C:\\SoftUni\\ArrayHouse\\ArrayHouse\\DemoAsynchronousProgramming\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\borislav.valkov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\vulko\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -53,12 +53,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "frameworkReferences": {
-          "Microsoft.NETCore.App": {
-            "privateAssets": "all"
-          }
-        },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

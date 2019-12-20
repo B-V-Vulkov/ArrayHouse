@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoCanvas", "DemoCanvas\De
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HouseDemoMoving", "HouseDemoMoving\HouseDemoMoving.csproj", "{6A7CC3C4-1848-4698-8578-CA3DA3A073F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoAsynchronousProgramming", "DemoAsynchronousProgramming\DemoAsynchronousProgramming.csproj", "{CF248848-AE3C-435D-BCFE-FDA13CB89783}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{6A7CC3C4-1848-4698-8578-CA3DA3A073F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A7CC3C4-1848-4698-8578-CA3DA3A073F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A7CC3C4-1848-4698-8578-CA3DA3A073F6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CF248848-AE3C-435D-BCFE-FDA13CB89783}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CF248848-AE3C-435D-BCFE-FDA13CB89783}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CF248848-AE3C-435D-BCFE-FDA13CB89783}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CF248848-AE3C-435D-BCFE-FDA13CB89783}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -29,11 +29,8 @@ namespace HouseDemoMoving
             set
             {
                 this.stackPanel = value;
-                NotifyPropertyChanged();
             }
         }
-
-
 
         private void CreateNewArrayHouse(object sender, RoutedEventArgs e)
         {
@@ -63,13 +60,10 @@ namespace HouseDemoMoving
             {
                 Canvas.SetTop(StackPanel, i);
                 Thread.Sleep(10);
-                this.UpdateLayout();
+                this.StackPanel.Dispatcher.Invoke(DispatcherPriority.Render, EmptyDelegate);
             }
         }
 
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        private readonly Action EmptyDelegate = delegate { };
     }
 }
