@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Images\Houses\ActiveHouse.png" />
+    <None Remove="Resources\Images\Houses\InactiveHouse.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Houses\ActiveHouse.png" />
+    <Resource Include="Resources\Images\Houses\InactiveHouse.png" />
+  </ItemGroup>
+
+</Project>

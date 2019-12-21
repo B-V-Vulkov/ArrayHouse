@@ -9,33 +9,132 @@
     using Commons;
     using Commons.Enumerations;
     using System.Collections.Generic;
-    using ArrayHouse.Models;
+    using Models;
     using System.Windows.Media;
     using System.Windows.Shapes;
+    using System.Windows.Data;
+    using System.Windows.Media.Imaging;
+    using System.Collections.ObjectModel;
+    using System.Windows.Threading;
 
     public partial class MainWindow : Window
     {
+        #region Declarations
+
         private HouseType defaultHouseType =>
             DefaultHouseTypeIsActive.IsChecked == true
             ? HouseType.Аctive
             : HouseType.Inactive;
 
+        #endregion
+
+        #region Initializations
+
         public MainWindow()
         {
             InitializeComponent();
 
+            this.InitializationListOfHouses = new List<House>();
+
+            InitializationListOfHouses.Add(new House { UrlPicture = UrlPicture.ACTIVE_HOUSE });
+
             this.HouseService = new HouseService();
 
-            this.InitializeHouses = new List<House>();
-
-            this.DataContext = HouseService;
+            this.DataContext = this;
         }
 
-        public List<House> InitializeHouses { get; set; }
+        public string testImage { get; set; } = UrlPicture.ACTIVE_HOUSE;
+
+        #endregion
+
+        #region Properties
+
+        public List<House> InitializationListOfHouses { get; set; }
+
+        #endregion
 
         public HouseService HouseService { get; set; }
 
         public int currentNumberOFHouse { get; set; }
+
+        public string testUrl { get; set; } = UrlPicture.ACTIVE_HOUSE;
+
+        #region Methods
+
+        private void CreateInitializationHouses(object sender, RoutedEventArgs e) 
+        {
+            InitializationListOfHouses.Clear();
+            CanvasForInitializationHouses.Children.Clear();
+
+            //get number of house
+            int numberOfHouses = 10;
+
+            //get default type of house
+            HouseType defaultHouseType = HouseType.Аctive;
+
+            //for (int i = 0; i < numberOfHouses; i++)
+            //{
+                InitializationListOfHouses.Add(new House
+                {
+                    Number = 0 + 1,
+                    UrlPicture = UrlPicture.INACTIVE_HOUSE,
+                    HouseType = defaultHouseType,
+                    XPosition = (0 * 100),
+                    YPosition = 0,
+                });
+
+                StackPanel stackPanel = new StackPanel();
+
+                Image image = new Image();
+                image.Width = 100;
+
+                Binding binding = new Binding();
+                binding.Source = InitializationListOfHouses[0].UrlPicture;
+            binding.Path = new PropertyPath("InitializationListOfHouses[(0)].UrlPicture");
+                binding.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+                image.SetBinding(Image.SourceProperty, binding);
+
+                Button button = new Button();
+                button.Height = 30;
+                button.Click += ChangePic;
+                button.CommandParameter = 0;
+
+                stackPanel.Children.Add(image);
+                stackPanel.Children.Add(button);
+
+                Canvas.SetLeft(stackPanel, InitializationListOfHouses[0].XPosition);
+
+
+                CanvasForInitializationHouses.Children.Add(stackPanel);
+            //}
+
+            CanvasForInitializationHouses.Width = 100 * numberOfHouses;
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+        public void ChangePic(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            int index = int.Parse(button.CommandParameter.ToString());
+
+            InitializationListOfHouses[index].UrlPicture = UrlPicture.ACTIVE_HOUSE;
+            InitializationListOfHouses[index].HouseType = HouseType.Аctive;
+
+
+        }
+
+        #endregion
 
         //TODO: Validate Method
         private int GetNumberOfHouse()
@@ -78,15 +177,15 @@
         {
             int numberOfHouse = GetNumberOfHouse();
 
-            this.InitializeHouses.Clear();
+            this.InitializationListOfHouses.Clear();
 
             var number = GetVerticalNumber(1);
 
-            InitializeCanvas.Children.Add(number);
+           
 
             for (int i = 0; i < numberOfHouse; i++)
             {
-
+                var test = ShapeService.Get();
             }
 
             //if (numberOfHouse != 0)
@@ -168,6 +267,11 @@
                 HouseService.InitializeNewArrayHouse(currentNumberOFHouse, defaultHouseType);
                 HouseService.InitializeNewMatrixHouse(0);
             }
+        }
+
+        private void testsss(object sender, RoutedEventArgs e)
+        {
+            InitializationListOfHouses[0].UrlPicture = UrlPicture.INACTIVE_HOUSE;
         }
     }
 }

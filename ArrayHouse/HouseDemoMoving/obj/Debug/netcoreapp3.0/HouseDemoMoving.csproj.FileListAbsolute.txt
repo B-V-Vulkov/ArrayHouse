@@ -31,3 +31,4 @@ D:\Projects\ArrayHouse\ArrayHouse\HouseDemoMoving\obj\Debug\netcoreapp3.0\HouseD
 D:\Projects\ArrayHouse\ArrayHouse\HouseDemoMoving\obj\Debug\netcoreapp3.0\HouseDemoMoving.AssemblyInfo.cs
 D:\Projects\ArrayHouse\ArrayHouse\HouseDemoMoving\obj\Debug\netcoreapp3.0\HouseDemoMoving.dll
 D:\Projects\ArrayHouse\ArrayHouse\HouseDemoMoving\obj\Debug\netcoreapp3.0\HouseDemoMoving.pdb
+C:\SoftUni\ArrayHouse\ArrayHouse\HouseDemoMoving\obj\Debug\netcoreapp3.0\HouseDemoMoving.csprojAssemblyReference.cache
