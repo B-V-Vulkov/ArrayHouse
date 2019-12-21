@@ -216,7 +216,7 @@
                                     </Line>
                                 </Grid>
 
-                                <Image Source="{Binding Path=InitializationListOfHouses[0]}"
+                                <Image Source="{Binding Path=InitializationListOfHouses[0].UrlPicture}"
                                Width="90"
                                Height="70"
                                        Margin="0 5 0 0"
