@@ -16,7 +16,7 @@ namespace HouseDemoMoving
         public MainWindow()
         {
             InitializeComponent();
-            HouseWrapper = new ObservableCollection<StackPanel>();
+            HouseWrapper = new List<StackPanel>();
 
             IndexesForUpDate = new Stack<int>();
             IndexesForUpDate.Push(1);
@@ -26,7 +26,7 @@ namespace HouseDemoMoving
             IndexesForUpDate.Push(12);
         }
 
-        private ObservableCollection<StackPanel> HouseWrapper { get; set; }
+        private List<StackPanel> HouseWrapper { get; set; }
 
         private Stack<int> IndexesForUpDate { get; set; }
 

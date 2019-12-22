@@ -12,12 +12,12 @@
             <ColumnDefinition Width="*" MinWidth="200" MaxWidth="300"/>
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
-
+        
         <GridSplitter Name="MainGridSplitter"
                       Width="5" 
                       Background="#DEF0F5">
         </GridSplitter>
-
+        
         <!--Input/Right Section-->
         <Border x:Name="MainBorderOfInputSection"
                 Grid.Column="0"
@@ -76,7 +76,7 @@
                             Text="Days:"/>
 
                         <TextBox
-                            x:Name="Days"
+                            x:Name="NumberOfDays"
                             Grid.Column="2"
                             Grid.Row="2"
                             Margin="5 10 5 10"
@@ -129,7 +129,7 @@
                     Margin="0 10 10 0"
                     FontSize="14"
                     Content="Create"
-                    Click="CreateInitializationHouses"/>
+                    Click="CreateInitializationList"/>
 
                 <TextBlock 
                     x:Name="ErrorMessageBlock"
@@ -145,7 +145,7 @@
         </Border>
 
         <!--Output/Left Section-->
-        <Border x:Name="MainBorderOfOutputSection"
+        <Border x:Name="WrapperOfOutputSection"
                 Grid.Column="1" Grid.Row="0"
                 Margin="5 0 0 0"
                 BorderThickness="1" BorderBrush="#DEF0F5" CornerRadius="10 0 0 0"
@@ -157,284 +157,62 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <StackPanel
-                    Grid.Row="0">
-
-                    <Border x:Name="InitializationBorder"
+                <!--Operation Section-->
+                <StackPanel x:Name="WrapperOfOperationSection" 
+                            Grid.Row="0">
+                    <!--Initialize Title Section-->
+                    <Border x:Name="InitializeTitle"
                             Margin="10 10 0 10"
                             BorderBrush="SkyBlue" BorderThickness="0 0 0 1">
-                        <TextBlock Name="InitializationTextBlock"
+                        <TextBlock Name="InitializeText"
                                    Margin="5"
                                    Text="Initialize">
                         </TextBlock>
                     </Border>
-
                     <ScrollViewer x:Name="InitializationScrollViewer"
-                                  VerticalScrollBarVisibility="Disabled"
-                                  HorizontalScrollBarVisibility="Visible"
                                   Height="145"
                                   Margin="10 0 0 10"
+                                  VerticalScrollBarVisibility="Disabled"
+                                  HorizontalScrollBarVisibility="Visible"
                                   Background="#ADD8E6">
-
-                        <Canvas x:Name="CanvasForInitializationHouses" 
-                                HorizontalAlignment="Left">
-
-                            <StackPanel x:Name="House" 
-                                        Canvas.Left="0" 
-                                        Canvas.Top="0">
-                                <Grid x:Name="NumberOfHouse12"
-                                      Width="100"
-                                      Height="20">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <TextBlock
-                                       Grid.Column="1"
-                                       Text="1"
-                                       Foreground="#0E8AA4">
-                                    </TextBlock>
-
-                                    <Line
-                                  X2="40"
-                                  Margin="5"
-                                  Grid.Column="0"
-                                  Stroke="White"
-                                  StrokeThickness="1" 
-                                  VerticalAlignment="Center">
-                                    </Line>
-
-                                    <Line 
-                                  X2="40"
-                                  Margin="5"
-                                  Grid.Column="2"
-                                  Stroke="White" 
-                                  StrokeThickness="1" 
-                                  VerticalAlignment="Center">
-                                    </Line>
-                                </Grid>
-
-                                <Image Source="{Binding Path=InitializationListOfHouses[0].UrlPicture}"
-                               Width="90"
-                               Height="70"
-                                       Margin="0 5 0 0"
-                               Canvas.Top="25"
-                               Canvas.Left="5"/>
-
-                                <Button
-                                x:Name="ChangeButton"
-                                Grid.Row="2" 
-                                Margin="0 5"
-                                Height="25"
-                                Width="100"
-                                FontSize="10"
-                                Content="Change"
-                                Style="{StaticResource ChangeButton}"
-                                CommandParameter="{Binding Path=Number}"
-                                Click="testsss"/>
-                            </StackPanel>
-
-                            <StackPanel Canvas.Left="100" Canvas.Top="0">
-                                <Grid x:Name="NumberOfHdouse12"
-                              Background="#ADD8E6"
-                              Width="100"
-                              Height="20"
-                              Canvas.Left="0"
-                              Canvas.Top="0">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <TextBlock
-                                       Grid.Column="1"
-                                       Text="2"
-                                       Foreground="#0E8AA4">
-                                    </TextBlock>
-
-                                    <Line
-                                  X2="40"
-                                  Margin="5"
-                                  Grid.Column="0"
-                                  Stroke="White"
-                                  StrokeThickness="1" 
-                                  VerticalAlignment="Center">
-                                    </Line>
-
-                                    <Line 
-                                  X2="40"
-                                  Margin="5"
-                                  Grid.Column="2"
-                                  Stroke="White" 
-                                  StrokeThickness="1" 
-                                  VerticalAlignment="Center">
-                                    </Line>
-                                </Grid>
-
-                                <Image Source="Resources/Images/Houses/ActiveHouse.png"
-                               Width="90"
-                               Height="70"
-                                       Margin="0 5 0 0"
-                               Canvas.Top="25"
-                               Canvas.Left="5"/>
-
-                                <Button
-                                x:Name="ChangedButton"
-                                Grid.Row="2" 
-                                Margin="0 5"
-                                Height="25"
-                                Width="100"
-                                FontSize="10"
-                                Content="Change"
-                                Style="{StaticResource ChangeButton}"
-                                CommandParameter="{Binding Path=Number}"
-                                Click="ChangeHouseType"/>
-                            </StackPanel>
-
-
-
-
-
-
-
-
-                        </Canvas>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-
-
-                        <!--<Grid 
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center">
-                            <ItemsControl
-                                ItemsSource="{Binding ArrayHouse}">
-
-                                <ItemsControl.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <StackPanel Orientation="Horizontal"/>
-                                    </ItemsPanelTemplate>
-                                </ItemsControl.ItemsPanel>
-
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-
-                                        <Grid>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="*"/>
-                                                <RowDefinition Height="3*"/>
-                                                <RowDefinition Height="*"/>
-                                            </Grid.RowDefinitions>
-
-                                            --><!--Number of house--><!--
-                                            <StackPanel
-                                                Grid.Row="0"
-                                                Orientation="Horizontal"
-                                                HorizontalAlignment="Center">
-
-                                                <Line
-                                                    X2="30"
-                                                    VerticalAlignment="Center"
-                                                    Margin="2 5"
-                                                    Stroke="Black" StrokeThickness="1"/>
-
-                                                <TextBlock
-                                                    VerticalAlignment="Center"
-                                                    HorizontalAlignment="Center"
-                                                    Text="{Binding Path=Number}"/>
-
-                                                <Line
-                                                    X2="30"
-                                                    VerticalAlignment="Center"
-                                                    Margin="2 5"
-                                                    Stroke="Black" StrokeThickness="1"/>
-                                            </StackPanel>
-
-                                            --><!--House Image--><!--
-                                            <Image 
-                                                Grid.Row="1"
-                                                Margin="1"
-                                                Source="{Binding Path=UrlPicture}"/>
-
-                                            --><!--Change Button--><!--
-                                            <Button
-                                                x:Name="ChangeButton"
-                                                Grid.Row="2" 
-                                                Margin="1"
-                                                Height="30"
-                                                Width="100"
-                                                FontSize="10"
-                                                Content="Change"
-                                                Style="{StaticResource ChangeButton}"
-                                                CommandParameter="{Binding Path=Number}"
-                                                Click="ChangeHouseType"/>
-
-                                        </Grid>
-
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-
-                        </Grid>-->
-
-                    </ScrollViewer>
-
-                    <Border
-                    Margin="10 0 0 0"
-                    Background="#ADD8E6" BorderBrush="#ADD8E6"
-                    CornerRadius="10 0 0 10" BorderThickness="1">
-
-                        <StackPanel 
-                        Orientation="Horizontal" 
-                        Margin="10">
-
-                            <Button
-                            x:Name="ExecuteButton"
-                            Style="{StaticResource ExecutionButton}"
-                            Width="120"
-                            Margin="0 0 30 0"
-                            FontSize="14"
-                            Content="Execute"
-                            Click="Execute"/>
-
-                            <Button
-                            x:Name="ResetButtonr"
-                            Style="{StaticResource ExecutionButton}"
-                            Width="120"
-                            Margin="0 0 30 0"
-                            FontSize="14"
-                            Content="Reset"
-                            Click="Reset"/>
-
+                        <!--Initialize items will be added to this panel at RunTime-->
+                        <StackPanel x:Name="InitializationPanel"
+                                    Orientation="Horizontal"
+                                    HorizontalAlignment="Left">
                         </StackPanel>
-
+                    </ScrollViewer>
+                    <!--Buttons Section-->
+                    <Border Name="WrapperOfButtonSection"
+                            Margin="10 0 0 0"
+                            Background="#ADD8E6" BorderBrush="#ADD8E6"
+                            CornerRadius="10 0 0 10" BorderThickness="1">
+                        <StackPanel x:Name="WrapperOfButtons"
+                                    Margin="10"
+                                    Orientation="Horizontal">
+                            <Button x:Name="ExecuteButton"
+                                    Style="{StaticResource ОutputОperationsButton}"
+                                    Content="Play"
+                                    Click="Play">
+                            </Button>
+                            <Button x:Name="ResetButtonr"
+                                    Style="{StaticResource ОutputОperationsButton}"
+                                    Content="Reset"
+                                    Click="Reset">
+                            </Button>
+                        </StackPanel>
                     </Border>
-
-                    <Border
-                    Margin="10 10 0 0"
-                    BorderBrush="SkyBlue" BorderThickness="0 0 0 1">
-                        <TextBlock
-                        Margin="5"
-                        Text="Playground"/>
+                    <!--Playground Title Section-->
+                    <Border x:Name="PlaygroundTitle"
+                            Margin="10 10 0 0"
+                            BorderBrush="SkyBlue" BorderThickness="0 0 0 1">
+                        <TextBlock x:Name="PlaygroundText"
+                                   Margin="5"
+                                   Text="Playground">
+                        </TextBlock>
                     </Border>
-
                 </StackPanel>
 
+                <!--Playground Section-->
                 <ScrollViewer x:Name="PlaygroundScrollViewer"
                               Grid.Row="1"
                               Margin="10 10 0 0"
@@ -442,7 +220,8 @@
                               HorizontalScrollBarVisibility="Visible"
                               Background="#ADD8E6">
 
-                    <Canvas Width="800" HorizontalAlignment="Left">
+                    <Canvas x:Name="PlaygroundCanvas"
+                            HorizontalAlignment="Left">
 
                         <Rectangle Width="20" Height="20" Fill="SkyBlue"></Rectangle>
 
