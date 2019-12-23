@@ -5,7 +5,7 @@
     using System.Windows.Media;
     using System.Windows.Shapes;
 
-    public static class ShapeService
+    public class ShapeService
     {
         public static Grid GetHorizontalLineWithNumber(int number)
         {

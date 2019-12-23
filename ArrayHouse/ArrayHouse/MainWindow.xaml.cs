@@ -17,6 +17,8 @@
     {
         #region Declarations
 
+        private readonly Action EmptyDelegate = delegate { };
+
         #endregion
 
         #region Initializations
@@ -41,6 +43,8 @@
         private string DefaultUrlPicture { get; set; }
 
         private int NumberOfElements { get; set; }
+
+        private int NumberOfDasy { get; set; }
 
         #endregion
 
@@ -74,7 +78,7 @@
 
             //Set NumberOfElements
             NumberOfElements = int.Parse(NumberOfHouses.Text);
-
+            
             for (int i = 0; i < NumberOfElements; i++)
             {
                 InitializationList.Add(new House
@@ -130,17 +134,17 @@
             {
                 return;
             }
-
+            
             //Reset
             PlaygroundCanvas.Children.Clear();
-
+            
             //Add vertical Line for start day
             Grid verticalLine = ShapeService.GetVerticalLineWithNumber(0);
             Canvas.SetTop(verticalLine, 20);
             PlaygroundCanvas.Children.Add(verticalLine);
 
             List<Image> racerList = new List<Image>();
-
+            
             //Create start day
             for (int i = 0; i < NumberOfElements; i++)
             {
@@ -159,40 +163,72 @@
             }
 
             PlaygroundCanvas.Width = 20 + (InitializationList.Count * 100);
+            PlaygroundCanvas.Height = 110;
 
-            //Get number of days
-            int numberOfDays = int.Parse(NumberOfDays.Text);
+            //Refresh View
+            Dispatcher.Invoke(DispatcherPriority.Render, EmptyDelegate);
+            Thread.Sleep(500);
 
-            for (int day = 1; day <= numberOfDays; day++)
+            //Set NumberOfDasy
+            NumberOfDasy = int.Parse(NumberOfDays.Text);
+
+            List<HouseType> currentStatus = GetCurrentRowStatus();
+            List<HouseType> nextStatus = GetNextRowStatus(currentStatus);
+
+            int currentRow = 1;
+
+            for (int day = 1; day <= NumberOfDasy; day++)
             {
-                //Create vertical line for next day
-                Grid currentDay = ShapeService.GetVerticalLineWithNumber(day);
-                Canvas.SetTop(currentDay, 20 + (day * 90));
-                PlaygroundCanvas.Children.Add(currentDay);
+                List<int> moveIndexes = new List<int>();
 
-                //To Add Get Method
-                var moveList = new List<int>() { 1, 2, 3, 5 };
+                bool isNeedVerticalLineForNextDay = false;
+                bool isAddedVerticalLineForNextDay = false;
 
-                //for (int step = 1; step <= 90; step++)
-                //{
-                //    Stack<int> currentIndexes = new Stack<int>(moveList);
+                for (int i = 0; i < nextStatus.Count; i++)
+                {
+                    if (nextStatus[i] == HouseType.Аctive)
+                    {
+                        moveIndexes.Add(i);
+                    }
+                }
 
-                //    while (currentIndexes.Count != 0)
-                //    {
-                //        int index = currentIndexes.Pop();
+                for (int step = 1; step <= 90; step++)
+                {
+                    foreach (var index in moveIndexes)
+                    {
+                        var currentElement = racerList[index];
+                        double currentPosition = Canvas.GetTop(currentElement);
+                        Canvas.SetTop(currentElement, currentPosition + 1);
 
-                //        var currentPosition = Canvas.GetTop(racerList[index]);
+                        if (currentPosition + 90 > PlaygroundCanvas.Height)
+                        {
+                            PlaygroundCanvas.Height += 1;
 
-                //        Canvas.SetTop(racerList[index], currentPosition + step);
-                //    }
+                            isNeedVerticalLineForNextDay = true;
+                        }
+                    }
 
-                //    Thread.Sleep(10);
-                //    this.Dispatcher.Invoke(DispatcherPriority.Render, EmptyDelegate);
-                //}
+                    //Create vertical line for next day
+                    if (isNeedVerticalLineForNextDay && !isAddedVerticalLineForNextDay)
+                    {
+                        Grid currentDay = ShapeService.GetVerticalLineWithNumber(currentRow);
+                        Canvas.SetTop(currentDay, 20 + (currentRow * 90));
+                        PlaygroundCanvas.Children.Add(currentDay);
+
+                        currentRow++;
+
+                        isAddedVerticalLineForNextDay = true;
+                    }
+
+                    PlaygroundScrollViewer.ScrollToBottom();
+                    Dispatcher.Invoke(DispatcherPriority.Render, EmptyDelegate);
+
+                    Thread.Sleep(10);
+                }
+
+                nextStatus = GetNextRowStatus(nextStatus);
             }
         }
-
-        private readonly Action EmptyDelegate = delegate { };
 
         private void Reset(object sender, RoutedEventArgs e)
         {
@@ -230,6 +266,48 @@
             ErrorMessageBlock.Text = String.Empty;
             return true;
         }
+
+        private List<HouseType> GetCurrentRowStatus()
+        {
+            List<HouseType> currentStatus = new List<HouseType>();
+
+            foreach (var item in InitializationList)
+            {
+                currentStatus.Add(item.HouseType);
+            }
+
+            return currentStatus;
+        }
+
+        private List<HouseType> GetNextRowStatus(List<HouseType> currentRowStatus)
+        {
+            List<HouseType> nextRowStatus = new List<HouseType>();
+
+            //Create List with [0 .. inputs .. 0]
+            LinkedList<HouseType> linkedListStatus = new LinkedList<HouseType>(currentRowStatus);
+            linkedListStatus.AddFirst(HouseType.Inactive);
+            linkedListStatus.AddLast(HouseType.Inactive);
+
+            while (linkedListStatus.Count != 2)
+            {
+                var leftElement = linkedListStatus.First.Value;
+                var rightElement = linkedListStatus.First.Next.Next.Value;
+
+                if (leftElement == rightElement)
+                {
+                    nextRowStatus.Add(HouseType.Inactive);
+                }
+                else
+                {
+                    nextRowStatus.Add(HouseType.Аctive);
+                }
+
+                linkedListStatus.RemoveFirst();
+            }
+
+            return nextRowStatus;
+        }
+
+        #endregion
     }
-    #endregion
 }

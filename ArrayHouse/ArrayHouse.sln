@@ -5,10 +5,6 @@ VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArrayHouse", "ArrayHouse\ArrayHouse.csproj", "{003CB9B4-1DB5-41AD-ABDD-C7217B0709FD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoCanvas", "DemoCanvas\DemoCanvas.csproj", "{2F3D7B59-B809-45A8-A153-D93F9A11C86A}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HouseDemoMoving", "HouseDemoMoving\HouseDemoMoving.csproj", "{6A7CC3C4-1848-4698-8578-CA3DA3A073F6}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,14 +15,6 @@ Global
 		{003CB9B4-1DB5-41AD-ABDD-C7217B0709FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{003CB9B4-1DB5-41AD-ABDD-C7217B0709FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{003CB9B4-1DB5-41AD-ABDD-C7217B0709FD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2F3D7B59-B809-45A8-A153-D93F9A11C86A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2F3D7B59-B809-45A8-A153-D93F9A11C86A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2F3D7B59-B809-45A8-A153-D93F9A11C86A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2F3D7B59-B809-45A8-A153-D93F9A11C86A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6A7CC3C4-1848-4698-8578-CA3DA3A073F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6A7CC3C4-1848-4698-8578-CA3DA3A073F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6A7CC3C4-1848-4698-8578-CA3DA3A073F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6A7CC3C4-1848-4698-8578-CA3DA3A073F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

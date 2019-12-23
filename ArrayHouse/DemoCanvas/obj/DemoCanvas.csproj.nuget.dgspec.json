@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\SoftUni\\ArrayHouse\\ArrayHouse\\DemoCanvas\\DemoCanvas.csproj": {}
+    "D:\\Projects\\ArrayHouse\\ArrayHouse\\DemoCanvas\\DemoCanvas.csproj": {}
   },
   "projects": {
-    "C:\\SoftUni\\ArrayHouse\\ArrayHouse\\DemoCanvas\\DemoCanvas.csproj": {
+    "D:\\Projects\\ArrayHouse\\ArrayHouse\\DemoCanvas\\DemoCanvas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\SoftUni\\ArrayHouse\\ArrayHouse\\DemoCanvas\\DemoCanvas.csproj",
+        "projectUniqueName": "D:\\Projects\\ArrayHouse\\ArrayHouse\\DemoCanvas\\DemoCanvas.csproj",
         "projectName": "DemoCanvas",
-        "projectPath": "C:\\SoftUni\\ArrayHouse\\ArrayHouse\\DemoCanvas\\DemoCanvas.csproj",
-        "packagesPath": "C:\\Users\\vulko\\.nuget\\packages\\",
-        "outputPath": "C:\\SoftUni\\ArrayHouse\\ArrayHouse\\DemoCanvas\\obj\\",
+        "projectPath": "D:\\Projects\\ArrayHouse\\ArrayHouse\\DemoCanvas\\DemoCanvas.csproj",
+        "packagesPath": "C:\\Users\\borislav.valkov\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\ArrayHouse\\ArrayHouse\\DemoCanvas\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\vulko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\borislav.valkov\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
