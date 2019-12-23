@@ -1,30 +1,21 @@
 ﻿namespace ArrayHouse
 {
-    using System;
-    using System.Windows;
-    using System.Windows.Controls;
-    using System.Media;
-
-    using Services;
     using Commons;
     using Commons.Enumerations;
-    using System.Collections.Generic;
     using Models;
-    using System.Windows.Media;
-    using System.Windows.Shapes;
+    using Services;
+    using System;
+    using System.Collections.Generic;
+    using System.Threading;
+    using System.Windows;
+    using System.Windows.Controls;
     using System.Windows.Data;
     using System.Windows.Media.Imaging;
-    using System.Collections.ObjectModel;
     using System.Windows.Threading;
-    using System.Threading;
 
     public partial class MainWindow : Window
     {
         #region Declarations
-
-        private HouseType defaultType;
-
-        private string defaultUrlPicture;
 
         #endregion
 
@@ -44,6 +35,12 @@
         #region Properties
 
         public List<House> InitializationList { get; set; }
+
+        private HouseType DefaultType { get; set; }
+
+        private string DefaultUrlPicture { get; set; }
+
+        private int NumberOfElements { get; set; }
 
         #endregion
 
@@ -65,26 +62,26 @@
             Grid verticalLine = ShapeService.GetVerticalLineWithNumber(0);
             InitializationPanel.Children.Add(verticalLine);
 
-            //Set defaultType
-            defaultType = DefaultHouseTypeIsActive.IsChecked == true
+            //Set DefaultType
+            DefaultType = DefaultHouseTypeIsActive.IsChecked == true
                 ? HouseType.Аctive
                 : HouseType.Inactive;
 
-            //Set defaultUrlPicture
-            defaultUrlPicture = defaultType == HouseType.Аctive
+            //Set DefaultUrlPicture
+            DefaultUrlPicture = DefaultType == HouseType.Аctive
                 ? UrlPicture.ACTIVE_HOUSE
                 : UrlPicture.INACTIVE_HOUSE;
 
-            //Get number of elements
-            int numberOfElements = int.Parse(NumberOfHouses.Text);
+            //Set NumberOfElements
+            NumberOfElements = int.Parse(NumberOfHouses.Text);
 
-            for (int i = 0; i < numberOfElements; i++)
+            for (int i = 0; i < NumberOfElements; i++)
             {
                 InitializationList.Add(new House
                 {
                     Number = i + 1,
-                    UrlPicture = defaultUrlPicture,
-                    HouseType = defaultType,
+                    UrlPicture = DefaultUrlPicture,
+                    HouseType = DefaultType,
                 });
 
                 StackPanel wrapper = new StackPanel();
@@ -126,13 +123,18 @@
             }
         }
 
-        #endregion
-
         private void Play(object sender, RoutedEventArgs e)
         {
+            //Check if Play operation is possible
+            if (InitializationList.Count == 0)
+            {
+                return;
+            }
+
             //Reset
             PlaygroundCanvas.Children.Clear();
 
+            //Add vertical Line for start day
             Grid verticalLine = ShapeService.GetVerticalLineWithNumber(0);
             Canvas.SetTop(verticalLine, 20);
             PlaygroundCanvas.Children.Add(verticalLine);
@@ -140,7 +142,7 @@
             List<Image> racerList = new List<Image>();
 
             //Create start day
-            for (int i = 0; i < InitializationList.Count; i++)
+            for (int i = 0; i < NumberOfElements; i++)
             {
                 Grid horizontalLine = ShapeService.GetHorizontalLineWithNumber(i + 1);
                 Canvas.SetLeft(horizontalLine, 20 + (i * 100));
@@ -156,35 +158,37 @@
                 PlaygroundCanvas.Children.Add(image);
             }
 
+            PlaygroundCanvas.Width = 20 + (InitializationList.Count * 100);
+
             //Get number of days
             int numberOfDays = int.Parse(NumberOfDays.Text);
 
-            for (int i = 1; i <= numberOfDays; i++)
+            for (int day = 1; day <= numberOfDays; day++)
             {
                 //Create vertical line for next day
-                Grid currentDay = ShapeService.GetVerticalLineWithNumber(i);
-                Canvas.SetTop(currentDay, 20 + (i * 90));
+                Grid currentDay = ShapeService.GetVerticalLineWithNumber(day);
+                Canvas.SetTop(currentDay, 20 + (day * 90));
                 PlaygroundCanvas.Children.Add(currentDay);
 
                 //To Add Get Method
                 var moveList = new List<int>() { 1, 2, 3, 5 };
 
-                for (int j = 1; j <= 90; j++)
-                {
-                    Stack<int> currentIndexes = new Stack<int>(moveList);
+                //for (int step = 1; step <= 90; step++)
+                //{
+                //    Stack<int> currentIndexes = new Stack<int>(moveList);
 
-                    while (currentIndexes.Count != 0)
-                    {
-                        int index = currentIndexes.Pop();
+                //    while (currentIndexes.Count != 0)
+                //    {
+                //        int index = currentIndexes.Pop();
 
-                        var currentPosition = Canvas.GetTop(racerList[index]);
+                //        var currentPosition = Canvas.GetTop(racerList[index]);
 
-                        Canvas.SetTop(racerList[index], currentPosition + j);
-                    }
+                //        Canvas.SetTop(racerList[index], currentPosition + step);
+                //    }
 
-                    Thread.Sleep(10);
-                    this.Dispatcher.Invoke(DispatcherPriority.Render, EmptyDelegate);
-                }
+                //    Thread.Sleep(10);
+                //    this.Dispatcher.Invoke(DispatcherPriority.Render, EmptyDelegate);
+                //}
             }
         }
 
@@ -194,8 +198,8 @@
         {
             foreach (var element in InitializationList)
             {
-                element.UrlPicture = defaultUrlPicture;
-                element.HouseType = defaultType;
+                element.UrlPicture = DefaultUrlPicture;
+                element.HouseType = DefaultType;
             }
 
             PlaygroundCanvas.Children.Clear();
@@ -227,4 +231,5 @@
             return true;
         }
     }
+    #endregion
 }
