@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.0": []
   },
   "packageFolders": {
-    "C:\\Users\\borislav.valkov\\.nuget\\packages\\": {}
+    "C:\\Users\\vulko\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\ArrayHouse\\ArrayHouse\\ArrayHouse\\ArrayHouse.csproj",
+      "projectUniqueName": "C:\\SoftUni\\ArrayHouse\\ArrayHouse\\ArrayHouse\\ArrayHouse.csproj",
       "projectName": "ArrayHouse",
-      "projectPath": "D:\\Projects\\ArrayHouse\\ArrayHouse\\ArrayHouse\\ArrayHouse.csproj",
-      "packagesPath": "C:\\Users\\borislav.valkov\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\ArrayHouse\\ArrayHouse\\ArrayHouse\\obj\\",
+      "projectPath": "C:\\SoftUni\\ArrayHouse\\ArrayHouse\\ArrayHouse\\ArrayHouse.csproj",
+      "packagesPath": "C:\\Users\\vulko\\.nuget\\packages\\",
+      "outputPath": "C:\\SoftUni\\ArrayHouse\\ArrayHouse\\ArrayHouse\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\borislav.valkov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\vulko\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

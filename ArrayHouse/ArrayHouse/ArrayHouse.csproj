@@ -5,6 +5,7 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>Resources\Images\Logo\Logo.ico</ApplicationIcon>
+    <StartupObject></StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
